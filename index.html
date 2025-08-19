@@ -1,0 +1,2743 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sinotruk Spare Parts - Your Trusted Source</title>
+<script src="https://cdn.tailwindcss.com/3.4.16"></script>
+<script>tailwind.config={theme:{extend:{colors:{primary:'#FF6600',secondary:'#2D2D2D'},borderRadius:{'none':'0px','sm':'4px',DEFAULT:'8px','md':'12px','lg':'16px','xl':'20px','2xl':'24px','3xl':'32px','full':'9999px','button':'8px'}}}}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css">
+<link rel="icon" type="image/png" href="./Images/logo.png" sizes="32x32">
+<link rel="shortcut icon" href="./Images/logo.png">
+<style>
+:where([class^="ri-"])::before { content: "\f3c2"; }
+body {
+font-family: 'Inter', sans-serif;
+background-color: #0F0F0F;
+color: #FFFFFF;
+}
+@keyframes slideInFromLeft {
+0% {    
+transform: translateX(-100%);
+opacity: 0;
+}
+100% {
+transform: translateX(0);
+opacity: 1;
+}
+}
+@keyframes slideInFromRight {
+0% {
+transform: translateX(100%);
+opacity: 0;
+}
+100% {
+transform: translateX(0);
+opacity: 1;
+}
+}
+@keyframes fadeIn {
+0% {
+opacity: 0;
+transform: translateY(20px);
+}
+100% {
+opacity: 1;
+transform: translateY(0);
+}
+}
+.slide-in-left {
+animation: slideInFromLeft 0.8s ease-out forwards;
+}
+.slide-in-right {
+animation: slideInFromRight 0.8s ease-out forwards;
+}
+.fade-in {
+opacity: 0;
+animation: fadeIn 0.8s ease-out forwards;
+}
+.animate-delay-1 {
+animation-delay: 0.2s;
+}
+.animate-delay-2 {
+animation-delay: 0.4s;
+}
+.animate-delay-3 {
+animation-delay: 0.6s;
+}
+h1, h2, h3, h4, h5, h6 {
+font-family: 'Orbitron', sans-serif;
+}
+.subheading {
+font-family: 'Barlow Condensed', sans-serif;
+}
+.glassmorphism {
+background: rgba(45, 45, 45, 0.3);
+backdrop-filter: blur(8px);
+border: 1px solid rgba(255, 255, 255, 0.1);
+}
+.metallic {
+background: linear-gradient(145deg, #333333, #2D2D2D);
+box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+.teal-accent {
+color: #00B2A9;
+}
+.hero-section {
+background-image: url('https://readdy.ai/api/search-image?query=Dark%20industrial%20background%20with%20metallic%20textures%2C%20dramatic%20lighting%2C%20heavy%20machinery%20silhouettes%2C%20professional%20atmosphere%2C%20deep%20shadows%2C%20industrial%20workshop%20environment%2C%20high%20contrast%2C%20engineering%20aesthetic%2C%20mechanical%20parts%20visible%20in%20background%2C%20premium%20quality%20industrial%20setting&width=1920&height=1080&seq=1&orientation=landscape');
+background-size: cover;
+background-position: center;
+}
+.hero-overlay {
+background: linear-gradient(90deg, rgba(15, 15, 15, 0.9) 0%, rgba(15, 15, 15, 0.7) 50%, rgba(15, 15, 15, 0.5) 100%);
+}
+.product-card:hover {
+transform: translateY(-5px);
+box-shadow: 0 10px 25px rgba(255, 102, 0, 0.15);
+}
+.service-card:hover {
+transform: translateY(-5px);
+box-shadow: 0 10px 25px rgba(0, 178, 169, 0.15);
+}
+.glowing-cta {
+box-shadow: 0 0 15px rgba(255, 102, 0, 0.5);
+transition: all 0.3s ease;
+}
+.glowing-cta:hover {
+box-shadow: 0 0 25px rgba(255, 102, 0, 0.8);
+}
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+-webkit-appearance: none;
+margin: 0;
+}
+.custom-checkbox {
+display: inline-block;
+position: relative;
+cursor: pointer;
+user-select: none;
+}
+.custom-checkbox input {
+position: absolute;
+opacity: 0;
+cursor: pointer;
+}
+.checkmark {
+position: absolute;
+top: 0;
+left: 0;
+height: 20px;
+width: 20px;
+background-color: #2D2D2D;
+border: 1px solid #444;
+border-radius: 4px;
+}
+.custom-checkbox:hover input ~ .checkmark {
+background-color: #333;
+}
+.custom-checkbox input:checked ~ .checkmark {
+background-color: #FF6600;
+border-color: #FF6600;
+}
+.checkmark:after {
+content: "";
+position: absolute;
+display: none;
+}
+.custom-checkbox input:checked ~ .checkmark:after {
+display: block;
+}
+.custom-checkbox .checkmark:after {
+left: 7px;
+top: 3px;
+width: 6px;
+height: 11px;
+border: solid white;
+border-width: 0 2px 2px 0;
+transform: rotate(45deg);
+}
+.custom-switch {
+position: relative;
+display: inline-block;
+width: 50px;
+height: 26px;
+}
+.custom-switch input {
+opacity: 0;
+width: 0;
+height: 0;
+}
+.slider {
+position: absolute;
+cursor: pointer;
+top: 0;
+left: 0;
+right: 0;
+bottom: 0;
+background-color: #2D2D2D;
+transition: .4s;
+border-radius: 34px;
+}
+.slider:before {
+position: absolute;
+content: "";
+height: 18px;
+width: 18px;
+left: 4px;
+bottom: 4px;
+background-color: white;
+transition: .4s;
+border-radius: 50%;
+}
+input:checked + .slider {
+background-color: #FF6600;
+}
+input:checked + .slider:before {
+transform: translateX(24px);
+}
+.custom-range {
+-webkit-appearance: none;
+width: 100%;
+height: 6px;
+border-radius: 5px;
+background: #2D2D2D;
+outline: none;
+}
+.custom-range::-webkit-slider-thumb {
+-webkit-appearance: none;
+appearance: none;
+width: 18px;
+height: 18px;
+border-radius: 50%;
+background: #FF6600;
+cursor: pointer;
+box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+}
+.custom-range::-moz-range-thumb {
+width: 18px;
+height: 18px;
+border-radius: 50%;
+background: #FF6600;
+cursor: pointer;
+box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+border: none;
+}
+.custom-radio {
+display: inline-block;
+position: relative;
+cursor: pointer;
+user-select: none;
+}
+.custom-radio input {
+position: absolute;
+opacity: 0;
+cursor: pointer;
+}
+.radio-mark {
+position: absolute;
+top: 0;
+left: 0;
+height: 20px;
+width: 20px;
+background-color: #2D2D2D;
+border: 1px solid #444;
+border-radius: 50%;
+}
+.custom-radio:hover input ~ .radio-mark {
+background-color: #333;
+}
+.custom-radio input:checked ~ .radio-mark {
+background-color: #2D2D2D;
+border-color: #FF6600;
+}
+.radio-mark:after {
+content: "";
+position: absolute;
+display: none;
+}
+.custom-radio input:checked ~ .radio-mark:after {
+display: block;
+}
+.custom-radio .radio-mark:after {
+top: 5px;
+left: 5px;
+width: 8px;
+height: 8px;
+border-radius: 50%;
+background: #FF6600;
+}
+.dropdown-container {
+position: relative;
+display: inline-block;
+}
+.dropdown-selected {
+display: flex;
+align-items: center;
+justify-content: space-between;
+padding: 10px 16px;
+background-color: #2D2D2D;
+border-radius: 8px;
+cursor: pointer;
+min-width: 200px;
+}
+.dropdown-options {
+position: absolute;
+top: 100%;
+left: 0;
+right: 0;
+background-color: #2D2D2D;
+border-radius: 8px;
+margin-top: 5px;
+box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+z-index: 10;
+max-height: 250px;
+overflow-y: auto;
+display: none;
+}
+.dropdown-option {
+padding: 10px 16px;
+cursor: pointer;
+}
+.dropdown-option:hover {
+background-color: #3D3D3D;
+}
+.tab-container {
+display: flex;
+background-color: #2D2D2D;
+border-radius: 999px;
+padding: 4px;
+}
+.tab-button {
+padding: 8px 16px;
+border-radius: 999px;
+cursor: pointer;
+text-align: center;
+flex: 1;
+white-space: nowrap;
+}
+.tab-button.active {
+background-color: #FF6600;
+color: white;
+}
+
+.tab-button.active .tab-count {
+background-color: rgba(255, 255, 255, 0.2) !important;
+}
+</style>
+</head>
+<body>
+<!-- Header/Navigation -->
+<header class="fixed top-0 left-0 right-0 z-50 glassmorphism">
+<div class="container mx-auto px-4 py-4 flex items-center justify-between">
+<div class="flex items-center">
+<a href="#" class="text-3xl font-['Pacifico'] text-white mr-10"><img src="./Images/logo.png" alt="logo" class="w-30 h-10"></a>
+<nav class="hidden md:flex space-x-8">
+<a href="#" class="text-white hover:text-primary transition-colors">Home</a>
+<a href="#products" class="text-white hover:text-primary transition-colors">Products</a>
+<a href="#services" class="text-white hover:text-primary transition-colors">Services</a>
+<a href="#about" class="text-white hover:text-primary transition-colors">About</a>
+<a href="#contact" class="text-white hover:text-primary transition-colors">Contact</a>
+</nav>
+</div>
+<div class="flex items-center space-x-4">
+<button id="viewFavoritesBtn" class="flex items-center space-x-2 bg-secondary hover:bg-gray-700 text-white px-4 py-2 !rounded-button transition-colors relative hidden">
+<i class="ri-heart-line text-lg"></i>
+<span>Favorites</span>
+<span id="favoritesBadge" class="absolute -top-2 -right-2 bg-red-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center hidden">0</span>
+</button>
+<button id="viewCompareBtn" class="flex items-center space-x-2 bg-secondary hover:bg-gray-700 text-white px-4 py-2 !rounded-button transition-colors relative hidden">
+<i class="ri-scales-line text-lg"></i>
+<span>Compare</span>
+<span id="compareBadge" class="absolute -top-2 -right-2 bg-blue-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center hidden">0</span>
+</button>
+</div>
+
+</div>
+</header>
+<!-- Hero Section -->
+<section class="hero-section min-h-screen pt-24 flex items-center">
+<div class="hero-overlay w-full h-full absolute inset-0"></div>
+<div class="container mx-auto px-4 py-20 relative z-10 flex flex-col md:flex-row items-center">
+<div class="w-full md:w-1/2 mb-10 md:mb-0">
+<h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">Your Trusted Source for Genuine Sinotruk Spare Parts</h1>
+<p class="subheading text-xl md:text-2xl text-gray-300 mb-8 max-w-xl">Delivering quality OEM parts across Ethiopia with unmatched reliability and expert support since 2015.</p>
+<div class="flex flex-wrap gap-4">
+<button id="exploreProductsBtn" class="glowing-cta bg-primary text-white px-6 py-3 !rounded-button flex items-center whitespace-nowrap">
+<span class="w-6 h-6 flex items-center justify-center mr-2">
+<i class="ri-search-line"></i>
+</span>
+Explore Products
+</button>
+<button id="contactSupportBtn" class="border-2 border-white hover:border-primary text-white hover:text-primary px-6 py-3 !rounded-button flex items-center transition-colors whitespace-nowrap">
+<span class="w-6 h-6 flex items-center justify-center mr-2">
+<i class="ri-customer-service-line"></i>
+</span>
+Contact Support
+</button>
+</div>
+</div>
+<div class="w-full md:w-1/2 flex justify-center">
+<div class="relative w-full max-w-lg h-80 md:h-96">
+<img src="./Images/HOWO Truck.jpg" alt="HOWO Truck" class="w-full h-full object-contain object-top">
+</div>
+</div>
+</div>
+</section>
+<!-- Products Section -->
+<section id="products" class="py-20 bg-[#0F0F0F]">
+<div class="container mx-auto px-4">
+<div class="text-center mb-16">
+<h2 class="text-3xl md:text-4xl font-bold mb-4">Premium Sinotruk Parts</h2>
+<p class="subheading text-xl text-gray-300 max-w-2xl mx-auto">Browse our extensive catalog of genuine OEM parts for all HOWO truck models</p>
+</div>
+<div class="flex flex-col lg:flex-row gap-8">
+<!-- Filters Sidebar -->
+        <div class="lg:w-1/4">
+          <div class="metallic p-6 !rounded-lg sticky top-24">
+            <div class="flex items-center justify-between mb-6">
+              <h3 class="text-xl font-bold">Filters</h3>
+              <div id="filtersActiveIndicator" class="hidden">
+                <span class="bg-primary text-white text-xs px-2 py-1 rounded-full">Active</span>
+              </div>
+            </div>
+        <!-- Categories -->
+        <div class="mb-6">
+          <h4 class="text-lg font-medium mb-3">Categories</h4>
+          <div class="space-y-3">
+            <label class="custom-checkbox flex items-center">
+              <span class="pl-7">Engine Parts</span>
+              <input type="checkbox" value="Engine Parts" checked>
+              <span class="checkmark"></span>
+            </label>
+            <label class="custom-checkbox flex items-center">
+              <span class="pl-7">Transmission</span>
+              <input type="checkbox" value="Transmission">
+              <span class="checkmark"></span>
+            </label>
+            <label class="custom-checkbox flex items-center">
+              <span class="pl-7">Brake System</span>
+              <input type="checkbox" value="Brake System">
+              <span class="checkmark"></span>
+            </label>
+            <label class="custom-checkbox flex items-center">
+              <span class="pl-7">Electrical</span>
+              <input type="checkbox" value="Electrical">
+              <span class="checkmark"></span>
+            </label>
+            <label class="custom-checkbox flex items-center">
+              <span class="pl-7">Chassis & Body</span>
+              <input type="checkbox" value="Chassis & Body">
+              <span class="checkmark"></span>
+            </label>
+          </div>
+        </div>
+        <!-- Truck Models -->
+        <div class="mb-6">
+          <h4 class="text-lg font-medium mb-3">Truck Models</h4>
+          <div class="space-y-3">
+            <label class="custom-checkbox flex items-center">
+              <span class="pl-7">HOWO A7</span>
+              <input type="checkbox" value="HOWO A7" checked>
+              <span class="checkmark"></span>
+            </label>
+            <label class="custom-checkbox flex items-center">
+              <span class="pl-7">HOWO T5G</span>
+              <input type="checkbox" value="HOWO T5G">
+              <span class="checkmark"></span>
+            </label>
+            <label class="custom-checkbox flex items-center">
+              <span class="pl-7">HOWO T7H</span>
+              <input type="checkbox" value="HOWO T7H">
+              <span class="checkmark"></span>
+            </label>
+            <label class="custom-checkbox flex items-center">
+              <span class="pl-7">SITRAK C7H</span>
+              <input type="checkbox" value="SITRAK C7H">
+              <span class="checkmark"></span>
+            </label>
+            <label class="custom-checkbox flex items-center">
+              <span class="pl-7">HOWO 336</span>
+              <input type="checkbox" value="HOWO 336">
+              <span class="checkmark"></span>
+            </label>
+            <label class="custom-checkbox flex items-center">
+              <span class="pl-7">HOWO 371</span>
+              <input type="checkbox" value="HOWO 371">
+              <span class="checkmark"></span>
+            </label>
+            <label class="custom-checkbox flex items-center">
+              <span class="pl-7">Howo TX 336</span>
+              <input type="checkbox" value="Howo TX 336">
+              <span class="checkmark"></span>
+            </label>
+            <label class="custom-checkbox flex items-center">
+              <span class="pl-7">SINO FSR</span>
+              <input type="checkbox" value="SINO FSR">
+              <span class="checkmark"></span>
+            </label>
+          </div>
+        </div>
+
+
+        <div class="flex space-x-2 mt-4">
+          <button id="applyFiltersBtn" class="flex-1 bg-primary text-white py-2.5 !rounded-button whitespace-nowrap">Apply Filters</button>
+          <button id="clearFiltersBtn" class="flex-1 bg-secondary hover:bg-gray-700 text-white py-2.5 !rounded-button whitespace-nowrap">Clear All</button>
+        </div>
+        <div class="flex space-x-2 mt-2">
+          <button id="clearCategoriesBtn" class="flex-1 bg-gray-600 hover:bg-gray-700 text-white py-2 !rounded-button text-sm">Clear Categories</button>
+          <button id="clearModelsBtn" class="flex-1 bg-gray-600 hover:bg-gray-700 text-white py-2 !rounded-button text-sm">Clear Models</button>
+        </div>
+        <button id="resetFiltersBtn" class="w-full bg-gray-600 hover:bg-gray-700 text-white py-2 !rounded-button mt-2 text-sm">Reset to Default</button>
+</div>
+</div>
+<!-- Products Grid -->
+<div class="lg:w-3/4">
+        <div class="flex justify-between items-center mb-8">
+          <div class="tab-container">
+            <button class="tab-button active" data-tab="all-parts">
+              All Parts
+              <span class="tab-count ml-2 bg-gray-600 text-white text-xs px-2 py-1 rounded-full">12</span>
+            </button>
+            <button class="tab-button" data-tab="new-arrivals">
+              New Arrivals
+              <span class="tab-count ml-2 bg-gray-600 text-white text-xs px-2 py-1 rounded-full">6</span>
+            </button>
+            <button class="tab-button" data-tab="best-sellers">
+              Best Sellers
+              <span class="tab-count ml-2 bg-gray-600 text-white text-xs px-2 py-2 rounded-full">7</span>
+            </button>
+          </div>
+          <div class="flex items-center space-x-4">
+            <div class="text-gray-300 text-sm">
+              <span id="resultsCount">12</span> products found
+            </div>
+            <button id="showAllProductsBtn" class="hidden bg-secondary hover:bg-gray-700 text-white px-4 py-2 rounded-button text-sm">
+              <i class="ri-eye-line mr-2"></i>Show All
+            </button>
+          </div>
+        </div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- Product Card 1 -->
+        <div class="product-card metallic p-4 !rounded-lg transition-all duration-300" data-category="Engine Parts" data-models="HOWO A7,HOWO T5G" data-new-arrival="true" data-best-seller="true">
+          <div class="relative mb-4">
+            <img src="./Images/Engine Cylinder Head.jpg" alt="Engine Cylinder Head" class="w-full h-48 object-cover object-top !rounded-lg">
+          </div>
+          <h3 class="text-lg font-bold mb-2">Engine Cylinder Head</h3>
+          <p class="text-gray-300 text-sm mb-3">WG2203210410 - Compatible with HOWO A7, T5G models</p>
+          <div class="flex justify-end items-center">
+            <div class="flex space-x-2">
+              <button class="favorite-btn w-8 h-8 flex items-center justify-center bg-secondary hover:bg-gray-700 !rounded-full" title="Add to favorites">
+                <i class="ri-heart-line"></i>
+              </button>
+              <button class="compare-btn w-8 h-8 flex items-center justify-center bg-secondary hover:bg-gray-700 !rounded-full" title="Add to compare">
+                <i class="ri-scales-line"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+        <!-- Product Card 2 -->
+        <div class="product-card metallic p-4 !rounded-lg transition-all duration-300" data-category="Transmission" data-models="HOWO A7,HOWO T5G,HOWO T7H,SITRAK C7H" data-new-arrival="false" data-best-seller="true">
+          <div class="relative mb-4"> 
+            <img  src="./Images/Transmission Gearbox.jpg" alt="Transmission Gearbox" class="w-full h-48 object-cover object-top !rounded-lg">
+          </div>
+          <h3 class="text-lg font-bold mb-2">Transmission Gearbox</h3>
+          <p class="text-gray-300 text-sm mb-3">AZ2210040440 - Compatible with all HOWO models</p>
+          <div class="flex justify-end items-center">
+            <div class="flex space-x-2">
+              <button class="favorite-btn w-8 h-8 flex items-center justify-center bg-secondary hover:bg-gray-700 !rounded-full" title="Add to favorites">
+                <i class="ri-heart-line"></i>
+              </button>
+              <button class="compare-btn w-8 h-8 flex items-center justify-center bg-secondary hover:bg-gray-700 !rounded-full" title="Add to compare">
+                <i class="ri-scales-line"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+        <!-- Product Card 3 -->
+        <div class="product-card metallic p-4 !rounded-lg transition-all duration-300" data-category="Brake System" data-models="HOWO T7H,SITRAK C7H" data-new-arrival="true" data-best-seller="false">
+          <div class="relative mb-4">
+            <img src="./Images/Brake System Kit.jpg" alt="Brake System Kit" class="w-full h-48 object-cover object-top !rounded-lg">
+
+          </div>
+          <h3 class="text-lg font-bold mb-2">Brake System Kit</h3>
+          <p class="text-gray-300 text-sm mb-3">WG9000360520 - Compatible with HOWO T7H, SITRAK models</p>
+          <div class="flex justify-end items-center">
+            <div class="flex space-x-2">
+              <button class="favorite-btn w-8 h-8 flex items-center justify-center bg-secondary hover:bg-gray-700 !rounded-full" title="Add to favorites">
+                <i class="ri-heart-line"></i>
+              </button>
+              <button class="compare-btn w-8 h-8 flex items-center justify-center bg-secondary hover:bg-gray-700 !rounded-full" title="Add to compare">
+                <i class="ri-scales-line"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+        <!-- Product Card 4 -->
+        <div class="product-card metallic p-4 !rounded-lg transition-all duration-300" data-category="Electrical" data-models="HOWO A7,HOWO T5G,HOWO T7H,SITRAK C7H" data-new-arrival="false" data-best-seller="true">
+          <div class="relative mb-4">
+            <img src="./Images/Alternator Assembly.jpg" alt="Alternator Assembly" class="w-full h-48 object-cover object-top !rounded-lg">
+          </div>
+          <h3 class="text-lg font-bold mb-2">Alternator Assembly</h3>
+          <p class="text-gray-300 text-sm mb-3">VG1560090012 - Compatible with all HOWO models</p>
+          <div class="flex justify-end items-center">
+            <div class="flex space-x-2">
+              <button class="favorite-btn w-8 h-8 flex items-center justify-center bg-secondary hover:bg-gray-700 !rounded-full" title="Add to favorites">
+                <i class="ri-heart-line"></i>
+              </button>
+              <button class="compare-btn w-8 h-8 flex items-center justify-center bg-secondary hover:bg-gray-700 !rounded-full" title="Add to compare">
+                <i class="ri-scales-line"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+        <!-- Product Card 5 -->
+        <div class="product-card metallic p-4 !rounded-lg transition-all duration-300" data-category="Engine Parts" data-models="HOWO A7,HOWO T5G" data-new-arrival="false" data-best-seller="false">
+          <div class="relative mb-4">
+            <img src="./Images/Fuel Injection Pump.jpg" alt="Fuel Injection Pump" class="w-full h-48 object-cover object-top !rounded-lg">
+          </div>
+          <h3 class="text-lg font-bold mb-2">Fuel Injection Pump</h3>
+          <p class="text-gray-300 text-sm mb-3">WG2203240001 - Compatible with HOWO A7, T5G models</p>
+          <div class="flex justify-end items-center">
+            <div class="flex space-x-2">
+              <button class="favorite-btn w-8 h-8 flex items-center justify-center bg-secondary hover:bg-gray-700 !rounded-full" title="Add to favorites">
+                <i class="ri-heart-line"></i>
+              </button>
+              <button class="compare-btn w-8 h-8 flex items-center justify-center bg-secondary hover:bg-gray-700 !rounded-full" title="Add to compare">
+                <i class="ri-scales-line"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+        <!-- Product Card 6 -->
+        <div class="product-card metallic p-4 !rounded-lg transition-all duration-300" data-category="Engine Parts" data-models="HOWO A7,HOWO T5G,HOWO T7H,SITRAK C7H" data-new-arrival="true" data-best-seller="false">
+          <div class="relative mb-4">
+            <img src="./Images/Air Compressor.jpg" alt="Air Compressor" class="w-full h-48 object-cover object-top !rounded-lg">
+          </div>
+          <h3 class="text-lg font-bold mb-2">Air Compressor</h3>
+          <p class="text-gray-300 text-sm mb-3">VG1099130010 - Compatible with all HOWO models</p>
+          <div class="flex justify-end items-center">
+            <div class="flex space-x-2">
+              <button class="favorite-btn w-8 h-8 flex items-center justify-center bg-secondary hover:bg-gray-700 !rounded-full" title="Add to favorites">
+                <i class="ri-heart-line"></i>
+              </button>
+              <button class="compare-btn w-8 h-8 flex items-center justify-center bg-secondary hover:bg-gray-700 !rounded-full" title="Add to compare">
+                <i class="ri-scales-line"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+        <!-- Product Card 7 (hidden by default) -->
+        <div class="product-card metallic p-4 !rounded-lg transition-all duration-300 hidden" data-category="Chassis & Body" data-models="HOWO 336" data-new-arrival="true" data-best-seller="false">
+          <div class="relative mb-4">
+            <img src="./Images/Cabin Assembly - HOWO 336 (Red).jpg" alt="Cabin Assembly - HOWO 336 (Red)" class="w-full h-48 object-cover object-top !rounded-lg">
+          </div>
+          <h3 class="text-lg font-bold mb-2">Cabin Assembly - HOWO 336 (Red)</h3>
+          <p class="text-gray-300 text-sm mb-3">WG1642110101 - Compatible with HOWO 336</p>
+          <div class="flex justify-end items-center">
+            <div class="flex space-x-2">
+              <button class="favorite-btn w-8 h-8 flex items-center justify-center bg-secondary hover:bg-gray-700 !rounded-full" title="Add to favorites">
+                <i class="ri-heart-line"></i>
+              </button>
+              <button class="compare-btn w-8 h-8 flex items-center justify-center bg-secondary hover:bg-gray-700 !rounded-full" title="Add to compare">
+                <i class="ri-scales-line"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+        <!-- Product Card 8 (hidden by default) -->
+        <div class="product-card metallic p-4 !rounded-lg transition-all duration-300 hidden" data-category="Chassis & Body" data-models="HOWO 371" data-new-arrival="false" data-best-seller="true">
+          <div class="relative mb-4">
+            <img src="./Images/Cabin Assembly - HOWO 371 (White).jpg" alt="Cabin Assembly - HOWO 371 (White)" class="w-full h-48 object-cover object-top !rounded-lg">
+          </div>
+          <h3 class="text-lg font-bold mb-2">Cabin Assembly - HOWO 371 (White)</h3>
+          <p class="text-gray-300 text-sm mb-3">WG1642110102 - Compatible with HOWO 371</p>
+          <div class="flex justify-end items-center">
+            <div class="flex space-x-2">
+              <button class="favorite-btn w-8 h-8 flex items-center justify-center bg-secondary hover:bg-gray-700 !rounded-full" title="Add to favorites">
+                <i class="ri-heart-line"></i>
+              </button>
+              <button class="compare-btn w-8 h-8 flex items-center justify-center bg-secondary hover:bg-gray-700 !rounded-full" title="Add to compare">
+                <i class="ri-scales-line"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+        <!-- Product Card 9 (hidden by default) -->
+        <div class="product-card metallic p-4 !rounded-lg transition-all duration-300 hidden" data-category="Chassis & Body" data-models="Howo TX 336" data-new-arrival="true" data-best-seller="false">
+          <div class="relative mb-4">
+            <img src="./Images/Howo TX 336.png" alt="Howo TX 336" class="w-full h-48 object-cover object-top !rounded-lg">
+          </div>
+          <h3 class="text-lg font-bold mb-2">Howo TX 336</h3>
+          <p class="text-gray-300 text-sm mb-3">WG1642110103 - Compatible with Howo TX 336</p>
+          <div class="flex justify-end items-center">
+            <div class="flex space-x-2">
+              <button class="favorite-btn w-8 h-8 flex items-center justify-center bg-secondary hover:bg-gray-700 !rounded-full" title="Add to favorites">
+                <i class="ri-heart-line"></i>
+              </button>
+              <button class="compare-btn w-8 h-8 flex items-center justify-center bg-secondary hover:bg-gray-700 !rounded-full" title="Add to compare">
+                <i class="ri-scales-line"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+        <!-- Product Card 10 (hidden by default) -->
+        <div class="product-card metallic p-4 !rounded-lg transition-all duration-300 hidden" data-category="Chassis & Body" data-models="SINO FSR" data-new-arrival="false" data-best-seller="true">
+          <div class="relative mb-4">
+            <img src="./Images/Cabin Assembly - SINO FSR (White).jpg" alt="Cabin Assembly - SINO FSR (White)" class="w-full h-48 object-cover object-top !rounded-lg">
+          </div>
+          <h3 class="text-lg font-bold mb-2">Cabin Assembly - SINO FSR (White)</h3>
+          <p class="text-gray-300 text-sm mb-3">WG1642110104 - Compatible with SINO FSR</p>
+          <div class="flex justify-end items-center">
+            <div class="flex space-x-2">
+              <button class="favorite-btn w-8 h-8 flex items-center justify-center bg-secondary hover:bg-gray-700 !rounded-full" title="Add to favorites">
+                <i class="ri-heart-line"></i>
+              </button>
+              <button class="compare-btn w-8 h-8 flex items-center justify-center bg-secondary hover:bg-gray-700 !rounded-full" title="Add to compare">
+                <i class="ri-scales-line"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+        <!-- Product Card 11 (hidden by default) -->
+        <div class="product-card metallic p-4 !rounded-lg transition-all duration-300 hidden" data-category="Chassis & Body" data-models="HOWO A7 371" data-new-arrival="true" data-best-seller="false">
+          <div class="relative mb-4">
+            <img src="./Images/A7 HOWO 371 Cabin Assembly.jpg" alt="A7 HOWO 371 Cabin Assembly" class="w-full h-48 object-cover object-top !rounded-lg">
+          </div>
+          <h3 class="text-lg font-bold mb-2">A7 HOWO 371 Cabin Assembly</h3>
+          <p class="text-gray-300 text-sm mb-3">WG1642110105 - Compatible with HOWO A7 371</p>
+          <div class="flex justify-end items-center">
+            <div class="flex space-x-2">
+              <button class="favorite-btn w-8 h-8 flex items-center justify-center bg-secondary hover:bg-gray-700 !rounded-full" title="Add to favorites">
+                <i class="ri-heart-line"></i>
+              </button>
+              <button class="compare-btn w-8 h-8 flex items-center justify-center bg-secondary hover:bg-gray-700 !rounded-full" title="Add to compare">
+                <i class="ri-scales-line"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+        <!-- Product Card 12 (hidden by default) -->
+        <div class="product-card metallic p-4 !rounded-lg transition-all duration-300 hidden" data-category="Chassis & Body" data-models="HOWO 371" data-new-arrival="false" data-best-seller="true">
+          <div class="relative mb-4">
+            <img src="./Images/Cabin Assembly - HOWO 371 (White).jpg" alt="Cabin Assembly - HOWO 371 (Red)" class="w-full h-48 object-cover object-top !rounded-lg">
+          </div>
+          <h3 class="text-lg font-bold mb-2">Cabin Assembly - HOWO 371 (Red)</h3>
+          <p class="text-gray-300 text-sm mb-3">WG1642110106 - Compatible with HOWO 371</p>
+          <div class="flex justify-end items-center">
+            <div class="flex space-x-2">
+              <button class="favorite-btn w-8 h-8 flex items-center justify-center bg-secondary hover:bg-gray-700 !rounded-full" title="Add to favorites">
+                <i class="ri-heart-line"></i>
+              </button>
+              <button class="compare-btn w-8 h-8 flex items-center justify-center bg-secondary hover:bg-gray-700 !rounded-full" title="Add to compare">
+                <i class="ri-scales-line"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+        </div>
+        
+        <!-- No Results Message -->
+        <div id="noResultsMessage" class="hidden text-center py-16">
+          <div class="w-24 h-24 mx-auto mb-6 flex items-center justify-center bg-secondary rounded-full">
+            <i class="ri-search-line text-4xl text-gray-400"></i>
+          </div>
+          <h3 class="text-2xl font-bold mb-2 text-gray-300">No Products Found</h3>
+          <p class="text-gray-400 mb-6">Try adjusting your filters or clearing some selections</p>
+          <button id="clearFiltersNoResults" class="bg-primary text-white px-6 py-3 rounded-button hover:bg-orange-700 transition-colors">
+            Clear All Filters
+          </button>
+        </div>
+        
+        <div class="mt-10 flex justify-center">
+<button id="loadMoreBtn" class="bg-primary text-white px-6 py-3 !rounded-button flex items-center whitespace-nowrap">
+<span class="w-6 h-6 flex items-center justify-center mr-2">
+<i class="ri-loader-4-line"></i>
+</span>
+Load More Products
+</button>
+<button id="showLessBtn" class="bg-secondary text-white px-6 py-3 !rounded-button flex items-center whitespace-nowrap ml-4 hidden">
+<span class="w-6 h-6 flex items-center justify-center mr-2">
+<i class="ri-arrow-up-line"></i>
+</span>
+Show Less
+</button>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Services Section -->
+<section id="services" class="py-20 bg-[#0A0A0A]">
+<div class="container mx-auto px-4">
+<div class="text-center mb-16">
+<h2 class="text-3xl md:text-4xl font-bold mb-4">Our Services</h2>
+<p class="subheading text-xl text-gray-300 max-w-2xl mx-auto">Comprehensive solutions to keep your fleet running at peak performance</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<!-- Service Card 1 -->
+<div class="service-card metallic p-6 !rounded-lg transition-all duration-300">
+<div class="w-16 h-16 flex items-center justify-center bg-[#00B2A9] !rounded-full mb-6 mx-auto">
+<i class="ri-truck-line text-3xl"></i>
+</div>
+<h3 class="text-2xl font-bold mb-4 text-center">Parts Supply</h3>
+<p class="text-gray-300 text-center mb-6">Access to over 20,000 genuine Sinotruk parts with fast delivery across Ethiopia.</p>
+<div class="space-y-4">
+<div class="flex items-start">
+<span class="w-5 h-5 flex items-center justify-center text-primary mr-3 mt-1">
+<i class="ri-check-line"></i>
+</span>
+<p class="text-sm text-gray-300">Genuine OEM parts with manufacturer warranty</p>
+</div>
+<div class="flex items-start">
+<span class="w-5 h-5 flex items-center justify-center text-primary mr-3 mt-1">
+<i class="ri-check-line"></i>
+</span>
+<p class="text-sm text-gray-300">Next-day delivery in Addis Ababa</p>
+</div>
+<div class="flex items-start">
+<span class="w-5 h-5 flex items-center justify-center text-primary mr-3 mt-1">
+<i class="ri-check-line"></i>
+</span>
+<p class="text-sm text-gray-300">Bulk ordering with volume discounts</p>
+</div>
+</div>
+<button class="w-full mt-8 border border-[#00B2A9] text-[#00B2A9] hover:bg-[#00B2A9] hover:text-white transition-colors py-2.5 !rounded-button whitespace-nowrap">Learn More</button>
+</div>
+<!-- Service Card 2 -->
+<div class="service-card metallic p-6 !rounded-lg transition-all duration-300">
+<div class="w-16 h-16 flex items-center justify-center bg-primary !rounded-full mb-6 mx-auto">
+<i class="ri-tools-line text-3xl"></i>
+</div>
+<h3 class="text-2xl font-bold mb-4 text-center">Technical Support</h3>
+<p class="text-gray-300 text-center mb-6">Expert technical assistance from factory-trained specialists for all Sinotruk models.</p>
+<div class="space-y-4">
+<div class="flex items-start">
+<span class="w-5 h-5 flex items-center justify-center text-primary mr-3 mt-1">
+<i class="ri-check-line"></i>
+</span>
+<p class="text-sm text-gray-300">24/7 technical helpline for emergency support</p>
+</div>
+<div class="flex items-start">
+<span class="w-5 h-5 flex items-center justify-center text-primary mr-3 mt-1">
+<i class="ri-check-line"></i>
+</span>
+<p class="text-sm text-gray-300">On-site diagnostics and troubleshooting</p>
+</div>
+<div class="flex items-start">
+<span class="w-5 h-5 flex items-center justify-center text-primary mr-3 mt-1">
+<i class="ri-check-line"></i>
+</span>
+<p class="text-sm text-gray-300">Repair manuals and technical documentation</p>
+</div>
+</div>
+<button class="w-full mt-8 border border-primary text-primary hover:bg-primary hover:text-white transition-colors py-2.5 !rounded-button whitespace-nowrap">Learn More</button>
+</div>
+<!-- Service Card 3 -->
+<div class="service-card metallic p-6 !rounded-lg transition-all duration-300">
+<div class="w-16 h-16 flex items-center justify-center bg-[#00B2A9] !rounded-full mb-6 mx-auto">
+<i class="ri-ship-line text-3xl"></i>
+</div>
+<h3 class="text-2xl font-bold mb-4 text-center">Logistics Solutions</h3>
+<p class="text-gray-300 text-center mb-6">Efficient import and distribution services for businesses across Ethiopia.</p>
+<div class="space-y-4">
+<div class="flex items-start">
+<span class="w-5 h-5 flex items-center justify-center text-primary mr-3 mt-1">
+<i class="ri-check-line"></i>
+</span>
+<p class="text-sm text-gray-300">Direct imports from Sinotruk factories</p>
+</div>
+<div class="flex items-start">
+<span class="w-5 h-5 flex items-center justify-center text-primary mr-3 mt-1">
+<i class="ri-check-line"></i>
+</span>
+<p class="text-sm text-gray-300">Customs clearance and documentation handling</p>
+</div>
+<div class="flex items-start">
+<span class="w-5 h-5 flex items-center justify-center text-primary mr-3 mt-1">
+<i class="ri-check-line"></i>
+</span>
+<p class="text-sm text-gray-300">Nationwide distribution network</p>
+</div>
+</div>
+<button class="w-full mt-8 border border-[#00B2A9] text-[#00B2A9] hover:bg-[#00B2A9] hover:text-white transition-colors py-2.5 !rounded-button whitespace-nowrap">Learn More</button>
+</div>
+</div>
+<div class="mt-16 text-center">
+<h3 class="text-2xl font-bold mb-6">Business Pricing Tiers</h3>
+<div class="flex flex-col md:flex-row gap-6 justify-center">
+<div class="metallic p-6 !rounded-lg w-full md:w-1/3 max-w-sm mx-auto">
+<h4 class="text-xl font-bold mb-2">Standard</h4>
+<p class="text-gray-300 mb-4">For small fleet operators</p>
+<div class="text-3xl font-bold mb-6">
+<span class="text-primary">5%</span>
+<span class="text-sm text-gray-300">discount</span>
+</div>
+<ul class="space-y-3 mb-6">
+<li class="flex items-start">
+<span class="w-5 h-5 flex items-center justify-center text-primary mr-3 mt-1">
+<i class="ri-check-line"></i>
+</span>
+<span class="text-sm">Access to all parts catalog</span>
+</li>
+<li class="flex items-start">
+<span class="w-5 h-5 flex items-center justify-center text-primary mr-3 mt-1">
+<i class="ri-check-line"></i>
+</span>
+<span class="text-sm">Standard delivery times</span>
+</li>
+<li class="flex items-start">
+<span class="w-5 h-5 flex items-center justify-center text-primary mr-3 mt-1">
+<i class="ri-check-line"></i>
+</span>
+<span class="text-sm">Email technical support</span>
+</li>
+</ul>
+<button class="w-full bg-secondary hover:bg-gray-700 text-white py-2.5 !rounded-button whitespace-nowrap">Get Started</button>
+</div>
+<div class="metallic p-6 !rounded-lg w-full md:w-1/3 max-w-sm mx-auto relative">
+<div class="absolute -top-4 left-0 right-0 mx-auto w-max bg-primary text-white px-4 py-1 !rounded-full text-sm">Most Popular</div>
+<h4 class="text-xl font-bold mb-2">Premium</h4>
+<p class="text-gray-300 mb-4">For medium fleet operators</p>
+<div class="text-3xl font-bold mb-6">
+<span class="text-primary">15%</span>
+<span class="text-sm text-gray-300">discount</span>
+</div>
+<ul class="space-y-3 mb-6">
+<li class="flex items-start">
+<span class="w-5 h-5 flex items-center justify-center text-primary mr-3 mt-1">
+<i class="ri-check-line"></i>
+</span>
+<span class="text-sm">Priority access to new inventory</span>
+</li>
+<li class="flex items-start">
+<span class="w-5 h-5 flex items-center justify-center text-primary mr-3 mt-1">
+<i class="ri-check-line"></i>
+</span>
+<span class="text-sm">Expedited delivery options</span>
+</li>
+<li class="flex items-start">
+<span class="w-5 h-5 flex items-center justify-center text-primary mr-3 mt-1">
+<i class="ri-check-line"></i>
+</span>
+<span class="text-sm">Phone technical support</span>
+</li>
+<li class="flex items-start">
+<span class="w-5 h-5 flex items-center justify-center text-primary mr-3 mt-1">
+<i class="ri-check-line"></i>
+</span>
+<span class="text-sm">Monthly technical bulletin</span>
+</li>
+</ul>
+<button class="w-full bg-primary hover:bg-orange-700 text-white py-2.5 !rounded-button whitespace-nowrap">Get Started</button>
+</div>
+<div class="metallic p-6 !rounded-lg w-full md:w-1/3 max-w-sm mx-auto">
+<h4 class="text-xl font-bold mb-2">Enterprise</h4>
+<p class="text-gray-300 mb-4">For large fleet operators</p>
+<div class="text-3xl font-bold mb-6">
+<span class="text-primary">25%</span>
+<span class="text-sm text-gray-300">discount</span>
+</div>
+<ul class="space-y-3 mb-6">
+<li class="flex items-start">
+<span class="w-5 h-5 flex items-center justify-center text-primary mr-3 mt-1">
+<i class="ri-check-line"></i>
+</span>
+<span class="text-sm">Custom ordering portal</span>
+</li>
+<li class="flex items-start">
+<span class="w-5 h-5 flex items-center justify-center text-primary mr-3 mt-1">
+<i class="ri-check-line"></i>
+</span>
+<span class="text-sm">Dedicated account manager</span>
+</li>
+<li class="flex items-start">
+<span class="w-5 h-5 flex items-center justify-center text-primary mr-3 mt-1">
+<i class="ri-check-line"></i>
+</span>
+<span class="text-sm">24/7 priority technical support</span>
+</li>
+<li class="flex items-start">
+<span class="w-5 h-5 flex items-center justify-center text-primary mr-3 mt-1">
+<i class="ri-check-line"></i>
+</span>
+<span class="text-sm">On-site technical training</span>
+</li>
+<li class="flex items-start">
+<span class="w-5 h-5 flex items-center justify-center text-primary mr-3 mt-1">
+<i class="ri-check-line"></i>
+</span>
+<span class="text-sm">Quarterly business review</span>
+</li>
+</ul>
+<button class="w-full bg-secondary hover:bg-gray-700 text-white py-2.5 !rounded-button whitespace-nowrap">Contact Sales</button>
+</div>
+</div>
+</div>
+</div>
+
+<!-- Additional Imports & Export Services Section -->
+<div class="mt-20">
+  <div class="text-center mb-12">
+    <h2 class="text-3xl md:text-4xl font-bold mb-4 flex items-center justify-center gap-2">Additional Imports & Export Services <span>✈️</span></h2>
+    <p class="subheading text-xl text-gray-300 max-w-2xl mx-auto">This part of your business complements your primary vehicle parts operations. It includes specialty imports, retail goods, and agricultural exports primarily from and to Ethiopia.</p>
+  </div>
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+    <!-- Import Service 1 -->
+    <div class="metallic p-6 !rounded-lg flex flex-col h-full">
+      <div class="w-14 h-14 flex items-center justify-center bg-primary !rounded-full mb-4 mx-auto">
+        <i class="ri-file-list-3-line text-2xl"></i>
+      </div>
+      <h3 class="text-xl font-bold mb-2 text-center">Stationery, Paper, and Office Supplies</h3>
+      <p class="text-gray-300 text-center mb-2">High-quality paper products, stationery, and printing materials for schools, businesses, and offices.</p>
+      <p class="text-gray-400 text-center text-sm">Includes notebooks, copy paper, envelopes, pens, and filing systems.</p>
+    </div>
+    <!-- Import Service 2 -->
+    <div class="metallic p-6 !rounded-lg flex flex-col h-full">
+      <div class="w-14 h-14 flex items-center justify-center bg-[#FFD700] !rounded-full mb-4 mx-auto">
+        <i class="ri-gem-line text-2xl"></i>
+      </div>
+      <h3 class="text-xl font-bold mb-2 text-center">Jewelry & Fashion Accessories</h3>
+      <p class="text-gray-300 text-center mb-2">Import of affordable and elegant jewelry, watches, and accessories for resale in Ethiopian markets.</p>
+      <p class="text-gray-400 text-center text-sm">Focus on both modern fashion and traditional styles.</p>
+    </div>
+    <!-- Import Service 3 -->
+    <div class="metallic p-6 !rounded-lg flex flex-col h-full">
+      <div class="w-14 h-14 flex items-center justify-center bg-[#00B2A9] !rounded-full mb-4 mx-auto">
+        <i class="ri-computer-line text-2xl"></i>
+      </div>
+      <h3 class="text-xl font-bold mb-2 text-center">Communication & Computer Equipment</h3>
+      <p class="text-gray-300 text-center mb-2">Mobile phones, wireless devices, routers, laptops, and computer peripherals.</p>
+      <p class="text-gray-400 text-center text-sm">Includes accessories such as chargers, memory devices, and networking tools.</p>
+    </div>
+    <!-- Import Service 4 -->
+    <div class="metallic p-6 !rounded-lg flex flex-col h-full">
+      <div class="w-14 h-14 flex items-center justify-center bg-primary !rounded-full mb-4 mx-auto">
+        <i class="ri-car-line text-2xl"></i>
+      </div>
+      <h3 class="text-xl font-bold mb-2 text-center">Vehicle Imports & Control Equipment</h3>
+      <p class="text-gray-300 text-center mb-2">Import of vehicles (cars, trucks, etc.), as well as control equipment such as GPS trackers, dash cams, parking sensors, etc.</p>
+    </div>
+    <!-- Import Service 5 -->
+    <div class="metallic p-6 !rounded-lg flex flex-col h-full">
+      <div class="w-14 h-14 flex items-center justify-center bg-[#FF6600] !rounded-full mb-4 mx-auto">
+        <i class="ri-truck-line text-2xl"></i>
+      </div>
+      <h3 class="text-xl font-bold mb-2 text-center">Dry Freight & Road Transport Services</h3>
+      <p class="text-gray-300 text-center mb-2">Road logistics services within Ethiopia for cargo delivery, particularly for spare parts, office supplies, and imported goods.</p>
+      <p class="text-gray-400 text-center text-sm">Dry freight means no refrigeration needed — perfect for general merchandise.</p>
+    </div>
+    <!-- Import Service 6 -->
+    <div class="metallic p-6 !rounded-lg flex flex-col h-full">
+      <div class="w-14 h-14 flex items-center justify-center bg-[#00B2A9] !rounded-full mb-4 mx-auto">
+        <i class="ri-hotel-bed-line text-2xl"></i>
+      </div>
+      <h3 class="text-xl font-bold mb-2 text-center">Guest Service & Hospitality Imports</h3>
+      <p class="text-gray-300 text-center mb-2">Supplies for hotels, guest houses, and lodging services: bedding, kitchen items, toiletries, guest electronics, etc.</p>
+  </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- About Section -->
+<section id="about" class="py-20 bg-[#0F0F0F]">
+<div class="container mx-auto px-4">
+<div class="text-center mb-16">
+<h2 class="text-3xl md:text-4xl font-bold mb-4">About Us</h2>
+<p class="subheading text-xl text-gray-300 max-w-2xl mx-auto">The leading Sinotruk parts supplier in Ethiopia since 2015</p>
+</div>
+<div class="flex flex-col lg:flex-row gap-12 items-center mb-16">
+<div class="lg:w-1/2">
+<h3 class="text-2xl font-bold mb-6">Our Story</h3>
+<p class="text-gray-300 mb-4">Founded in 2015, we have grown to become Ethiopia's premier supplier of genuine Sinotruk spare parts. Our journey began with a simple mission: to provide reliable access to high-quality parts for the growing fleet of Chinese heavy-duty trucks in Ethiopia.</p>
+<p class="text-gray-300 mb-4">Today, we operate the largest inventory of Sinotruk parts in East Africa, with over 20,000 unique parts available for immediate delivery. Our team of 45 dedicated professionals includes factory-trained technicians, logistics experts, and customer service specialists.</p>
+<p class="text-gray-300">As an authorized Sinotruk partner, we maintain direct supply relationships with manufacturing facilities in China, ensuring that every part we sell is genuine, reliable, and backed by manufacturer warranty.</p>
+</div>
+<div class="lg:w-1/2">
+<div class="relative">
+<img src="https://readdy.ai/api/search-image?query=Modern%20industrial%20warehouse%20interior%20with%20organized%20shelves%20of%20truck%20parts%2C%20workers%20in%20uniforms%2C%20professional%20lighting%2C%20clean%20environment%2C%20high%20ceilings%2C%20forklift%20visible%2C%20metallic%20shelving%20units%2C%20systematic%20organization%2C%20commercial%20setting%2C%20business%20operations&width=600&height=400&seq=9&orientation=landscape" alt="Our Warehouse" class="w-full !rounded-lg">
+<div class="absolute -bottom-6 -right-6 bg-primary text-white p-4 !rounded-lg">
+<p class="text-2xl font-bold">10+</p>
+<p class="text-sm">Years Experience</p>
+</div>
+</div>
+</div>
+</div>
+<div class="mb-16">
+<h3 class="text-2xl font-bold mb-8 text-center">Our Timeline</h3>
+<div class="relative">
+<!-- Timeline Line -->
+<div class="absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-gray-700"></div>
+<!-- Timeline Items -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+<!-- 2015 -->
+<div class="md:col-start-1 relative pb-12">
+<div class="absolute right-0 md:right-auto md:left-full md:-translate-x-1/2 top-0 w-6 h-6 !rounded-full bg-primary border-4 border-[#0F0F0F]"></div>
+<div class="md:text-right md:pr-8">
+<h4 class="text-xl font-bold mb-2">2015</h4>
+<p class="text-gray-300">Founded as a small parts importer in Addis Ababa with just 3 employees</p>
+</div>
+</div>
+<div class="md:col-start-2 hidden md:block"></div>
+<!-- 2017 -->
+<div class="md:col-start-2 relative pb-12">
+<div class="absolute left-0 md:left-auto md:right-full md:translate-x-1/2 top-0 w-6 h-6 !rounded-full bg-primary border-4 border-[#0F0F0F]"></div>
+<div class="md:text-left md:pl-8">
+<h4 class="text-xl font-bold mb-2">2017</h4>
+<p class="text-gray-300">Became an authorized Sinotruk parts distributor for Ethiopia</p>
+</div>
+</div>
+<div class="md:col-start-1 hidden md:block"></div>
+<!-- 2019 -->
+<div class="md:col-start-1 relative pb-12">
+<div class="absolute right-0 md:right-auto md:left-full md:-translate-x-1/2 top-0 w-6 h-6 !rounded-full bg-primary border-4 border-[#0F0F0F]"></div>
+<div class="md:text-right md:pr-8">
+<h4 class="text-xl font-bold mb-2">2019</h4>
+<p class="text-gray-300">Opened our 5,000 sqm warehouse and expanded to 20 employees</p>
+</div>
+</div>
+<div class="md:col-start-2 hidden md:block"></div>
+<!-- 2021 -->
+<div class="md:col-start-2 relative pb-12">
+<div class="absolute left-0 md:left-auto md:right-full md:translate-x-1/2 top-0 w-6 h-6 !rounded-full bg-primary border-4 border-[#0F0F0F]"></div>
+<div class="md:text-left md:pl-8">
+<h4 class="text-xl font-bold mb-2">2021</h4>
+<p class="text-gray-300">Launched nationwide delivery service reaching all major cities in Ethiopia</p>
+</div>
+</div>
+<div class="md:col-start-1 hidden md:block"></div>
+<!-- 2023 -->
+<div class="md:col-start-1 relative">
+<div class="absolute right-0 md:right-auto md:left-full md:-translate-x-1/2 top-0 w-6 h-6 !rounded-full bg-primary border-4 border-[#0F0F0F]"></div>
+<div class="md:text-right md:pr-8">
+<h4 class="text-xl font-bold mb-2">2023</h4>
+<p class="text-gray-300">Established technical training center and expanded team to 45 professionals</p>
+</div>
+</div>
+<div class="md:col-start-2 hidden md:block"></div>
+</div>
+</div>
+</div>
+<div class="mb-16">
+<h3 class="text-2xl font-bold mb-8 text-center">Our Coverage</h3>
+<div class="relative h-96 !rounded-lg overflow-hidden">
+<div style="background-image: url('https://public.readdy.ai/gen_page/map_placeholder_1280x720.png'); background-size: cover; background-position: center;" class="absolute inset-0"></div>
+<div class="absolute inset-0 bg-black bg-opacity-50"></div>
+<div class="absolute inset-0 p-8 flex flex-col justify-center items-center text-center">
+<h4 class="text-2xl font-bold mb-4">Nationwide Service</h4>
+<p class="text-gray-300 mb-6 max-w-xl">Our distribution network covers all major cities and transportation hubs across Ethiopia, with next-day delivery available in Addis Ababa and 2-3 day delivery to regional centers.</p>
+<div class="grid grid-cols-2 md:grid-cols-4 gap-4 w-full max-w-2xl">
+<div class="bg-secondary bg-opacity-80 p-3 !rounded-lg">
+<p class="text-2xl font-bold text-primary">12</p>
+<p class="text-sm">Regional Hubs</p>
+</div>
+<div class="bg-secondary bg-opacity-80 p-3 !rounded-lg">
+<p class="text-2xl font-bold text-primary">45+</p>
+<p class="text-sm">Cities Served</p>
+</div>
+<div class="bg-secondary bg-opacity-80 p-3 !rounded-lg">
+<p class="text-2xl font-bold text-primary">24h</p>
+<p class="text-sm">Addis Delivery</p>
+</div>
+<div class="bg-secondary bg-opacity-80 p-3 !rounded-lg">
+<p class="text-2xl font-bold text-primary">98%</p>
+<p class="text-sm">On-time Rate</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div>
+<h3 class="text-2xl font-bold mb-8 text-center">Our Partners</h3>
+<div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+<div class="metallic p-4 !rounded-lg flex flex-col items-center justify-center">
+<div class="w-16 h-16 flex items-center justify-center mb-4">
+<i class="ri-truck-fill text-4xl text-primary"></i>
+</div>
+<p class="font-bold text-center">Sinotruk</p>
+<p class="text-sm text-gray-300 text-center">Official Partner</p>
+</div>
+<div class="metallic p-4 !rounded-lg flex flex-col items-center justify-center">
+<div class="w-16 h-16 flex items-center justify-center mb-4">
+<i class="ri-steering-2-fill text-4xl text-primary"></i>
+</div>
+<p class="font-bold text-center">WeiChai Power</p>
+<p class="text-sm text-gray-300 text-center">Engine Specialist</p>
+</div>
+<div class="metallic p-4 !rounded-lg flex flex-col items-center justify-center">
+<div class="w-16 h-16 flex items-center justify-center mb-4">
+<i class="ri-settings-fill text-4xl text-primary"></i>
+</div>
+<p class="font-bold text-center">Fast Gearbox</p>
+<p class="text-sm text-gray-300 text-center">Transmission Partner</p>
+</div>
+<div class="metallic p-4 !rounded-lg flex flex-col items-center justify-center">
+<div class="w-16 h-16 flex items-center justify-center mb-4">
+<i class="ri-government-fill text-4xl text-primary"></i>
+</div>
+<p class="font-bold text-center">Ethiopian Transport Authority</p>
+<p class="text-sm text-gray-300 text-center">Certified Provider</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Contact Section -->
+<section id="contact" class="py-20 bg-[#0A0A0A]">
+<div class="container mx-auto px-4">
+<div class="text-center mb-16">
+<h2 class="text-3xl md:text-4xl font-bold mb-4">Contact Us</h2>
+<p class="subheading text-xl text-gray-300 max-w-2xl mx-auto">Get in touch with our team for quotes, technical support, or general inquiries</p>
+</div>
+<div class="flex flex-col lg:flex-row gap-12">
+<div class="lg:w-1/2">
+<form class="metallic p-8 !rounded-lg">
+<h3 class="text-2xl font-bold mb-6">Send Us a Message</h3>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+<div>
+<label class="block text-sm font-medium mb-2">First Name</label>
+<input type="text" class="w-full bg-[#1A1A1A] border border-gray-700 !rounded-lg px-4 py-3 text-white focus:border-primary focus:outline-none" placeholder="Your first name">
+</div>
+<div>
+<label class="block text-sm font-medium mb-2">Last Name</label>
+<input type="text" class="w-full bg-[#1A1A1A] border border-gray-700 !rounded-lg px-4 py-3 text-white focus:border-primary focus:outline-none" placeholder="Your last name">
+</div>
+</div>
+<div class="mb-6">
+<label class="block text-sm font-medium mb-2">Email Address</label>
+<input type="email" class="w-full bg-[#1A1A1A] border border-gray-700 !rounded-lg px-4 py-3 text-white focus:border-primary focus:outline-none" placeholder="your.email@company.com">
+</div>
+<div class="mb-6">
+<label class="block text-sm font-medium mb-2">Phone Number</label>
+<input type="tel" class="w-full bg-[#1A1A1A] border border-gray-700 !rounded-lg px-4 py-3 text-white focus:border-primary focus:outline-none" placeholder="+251 91 234 5678">
+</div>
+<div class="mb-6">
+<label class="block text-sm font-medium mb-2">Inquiry Type</label>
+<div class="dropdown-container w-full">
+<div class="dropdown-selected w-full bg-[#1A1A1A] border border-gray-700 !rounded-lg">
+<span>Select inquiry type</span>
+<span class="w-5 h-5 flex items-center justify-center">
+<i class="ri-arrow-down-s-line"></i>
+</span>
+</div>
+<div class="dropdown-options w-full">
+<div class="dropdown-option">Parts Inquiry</div>
+<div class="dropdown-option">Technical Support</div>
+<div class="dropdown-option">Business Partnership</div>
+<div class="dropdown-option">Delivery Information</div>
+<div class="dropdown-option">Other</div>
+</div>
+</div>
+</div>
+<div class="mb-6">
+<label class="block text-sm font-medium mb-2">Message</label>
+<textarea class="w-full bg-[#1A1A1A] border border-gray-700 !rounded-lg px-4 py-3 text-white focus:border-primary focus:outline-none h-32" placeholder="Please describe your inquiry in detail..."></textarea>
+</div>
+<div class="mb-6">
+<label class="custom-checkbox flex items-center">
+<span class="pl-7 text-sm">I agree to the privacy policy and terms of service</span>
+<input type="checkbox">
+<span class="checkmark"></span>
+</label>
+</div>
+<button class="w-full bg-primary hover:bg-orange-700 text-white py-3 !rounded-button whitespace-nowrap">Send Message</button>
+</form>
+</div>
+<div class="lg:w-1/2">
+<div class="metallic p-8 !rounded-lg mb-8">
+<h3 class="text-2xl font-bold mb-6">Contact Information</h3>
+<div class="space-y-6">
+<div class="flex items-start">
+<div class="w-12 h-12 flex items-center justify-center bg-secondary !rounded-full mr-4">
+<i class="ri-map-pin-line text-xl text-primary"></i>
+</div>
+<div>
+<h4 class="font-bold mb-1">Head Office</h4>
+<p class="text-gray-300">Addis Ababa, Ethiopia<br>Premium Import & Export Hub</p>
+</div>
+</div>
+<div class="flex items-start">
+<div class="w-12 h-12 flex items-center justify-center bg-secondary !rounded-full mr-4">
+<i class="ri-map-pin-line text-xl text-primary"></i>
+</div>
+<div>
+<h4 class="font-bold mb-1">Branch 1</h4>
+<p class="text-gray-300">Addis Ababa, Ethiopia<br>Industrial Zone</p>
+<a href="https://maps.google.com/maps?q=8.919303,38.762423&ll=8.919303,38.762423&z=16" target="_blank" class="text-primary hover:text-orange-500 transition-colors text-sm">View on Map</a>
+</div>
+</div>
+<div class="flex items-start">
+<div class="w-12 h-12 flex items-center justify-center bg-secondary !rounded-full mr-4">
+<i class="ri-map-pin-line text-xl text-primary"></i>
+</div>
+<div>
+<h4 class="font-bold mb-1">Branch 2</h4>
+<p class="text-gray-300">Addis Ababa, Ethiopia<br>Commercial District</p>
+<a href="https://maps.google.com/maps?q=8.976888,38.747621&ll=8.976888,38.747621&z=16" target="_blank" class="text-primary hover:text-orange-500 transition-colors text-sm">View on Map</a>
+</div>
+</div>
+<div class="flex items-start">
+<div class="w-12 h-12 flex items-center justify-center bg-secondary !rounded-full mr-4">
+<i class="ri-phone-line text-xl text-primary"></i>
+</div>
+<div>
+<h4 class="font-bold mb-1">Phone</h4>
+<p class="text-gray-300">Mobile: +251 91 121 5418<br>Mobile: +251 934 525252<br>Tel: 011 470 6229</p>
+</div>
+</div>
+<div class="flex items-start">
+<div class="w-12 h-12 flex items-center justify-center bg-secondary !rounded-full mr-4">
+<i class="ri-mail-line text-xl text-primary"></i>
+</div>
+<div>
+<h4 class="font-bold mb-1">Email</h4>
+<p class="text-gray-300">spokane.parts@gmail.com</p>
+</div>
+</div>
+<div class="flex items-start">
+<div class="w-12 h-12 flex items-center justify-center bg-secondary !rounded-full mr-4">
+<i class="ri-time-line text-xl text-primary"></i>
+</div>
+<div>
+<h4 class="font-bold mb-1">Business Hours</h4>
+<p class="text-gray-300">Monday - Friday: 8:00 AM - 6:00 PM<br>Saturday: 9:00 AM - 4:00 PM<br>Sunday: Emergency Support Available</p>
+</div>
+</div>
+</div>
+</div>
+<div class="metallic !rounded-lg overflow-hidden">
+<div style="background-image: url('./gallary/spokane\ \ \(17\).jpg'); background-size: contain; background-position: center; background-repeat: no-repeat; min-height: 400px;" class="w-full h-full"></div> </div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- WhatsApp Float Button -->
+<a
+href="https://wa.me/251911215418"
+target="_blank"
+class="fixed bottom-8 right-8 w-16 h-16 flex items-center justify-center bg-green-600 !rounded-full shadow-lg z-50 hover:bg-green-700 transition-colors"
+>
+<i class="ri-whatsapp-line text-3xl text-white"></i>
+</a>
+<!-- Footer -->
+<footer class="bg-[#050505] py-16">
+<div class="container mx-auto px-4">
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+<div>
+<a href="#" class="text-3xl font-['Pacifico'] text-white block mb-6"
+  ></a
+>
+<p class="text-gray-400 mb-6">
+  Your trusted source for genuine Sinotruk spare parts in Ethiopia 
+  since 2015.
+</p>
+<div class="flex space-x-4">
+  <a
+    href="#"
+    class="w-10 h-10 flex items-center justify-center bg-secondary !rounded-full hover:bg-primary transition-colors"
+  >
+    <i class="ri-facebook-fill"></i>
+  </a>
+  <a
+    href="#"
+    class="w-10 h-10 flex items-center justify-center bg-secondary !rounded-full hover:bg-primary transition-colors"
+  >
+    <i class="ri-linkedin-fill"></i>
+  </a>
+  <a
+    href="#"
+    class="w-10 h-10 flex items-center justify-center bg-secondary !rounded-full hover:bg-primary transition-colors"
+  >
+    <i class="ri-whatsapp-fill"></i>
+  </a>
+  <a
+    href="#"
+    class="w-10 h-10 flex items-center justify-center bg-secondary !rounded-full hover:bg-primary transition-colors"
+  >
+    <i class="ri-telegram-fill"></i>
+  </a>
+</div>
+</div>
+<div>
+<h4 class="text-lg font-bold mb-6">Quick Links</h4>
+<ul class="space-y-3">
+  <li>
+    <a
+      href="#"
+      class="text-gray-400 hover:text-primary transition-colors"
+      >Home</a
+    >
+  </li>
+  <li>
+    <a
+      href="#products"
+      class="text-gray-400 hover:text-primary transition-colors"
+      >Products</a
+    >
+  </li>
+  <li>
+    <a
+      href="#services"
+      class="text-gray-400 hover:text-primary transition-colors"
+      >Services</a
+    >
+  </li>
+  <li>
+    <a
+      href="#about"
+      class="text-gray-400 hover:text-primary transition-colors"
+      >About Us</a
+    >
+  </li>
+  <li>
+    <a
+      href="#contact"
+      class="text-gray-400 hover:text-primary transition-colors"
+      >Contact</a
+    >
+  </li>
+</ul>
+</div>
+<div>
+<h4 class="text-lg font-bold mb-6">Product Categories</h4>
+<ul class="space-y-3">
+  <li>
+    <a
+      href="#"
+      class="text-gray-400 hover:text-primary transition-colors"
+      >Engine Parts</a
+    >
+  </li>
+  <li>
+    <a
+      href="#"
+      class="text-gray-400 hover:text-primary transition-colors"
+      >Transmission</a
+    >
+  </li>
+  <li>
+    <a
+      href="#"
+      class="text-gray-400 hover:text-primary transition-colors"
+      >Brake System</a
+    >
+  </li>
+  <li>
+    <a
+      href="#"
+      class="text-gray-400 hover:text-primary transition-colors"
+      >Electrical</a
+    >
+  </li>
+  <li>
+    <a
+      href="#"
+      class="text-gray-400 hover:text-primary transition-colors"
+      >Chassis & Body</a
+    >
+  </li>
+</ul>
+</div>
+<div>
+<h4 class="text-lg font-bold mb-6">Newsletter</h4>
+<p class="text-gray-400 mb-4">
+  Subscribe to receive updates on new products and technical
+  bulletins.
+</p>
+<div class="flex">
+  <input
+    type="email"
+    class="flex-1 bg-secondary border-none !rounded-l-lg px-4 py-2 text-white focus:outline-none"
+    placeholder="Your email"
+  />
+  <button
+    class="bg-primary text-white px-4 py-2 !rounded-r-lg whitespace-nowrap"
+  >
+    Subscribe
+  </button>
+</div>
+</div>
+</div>
+<div
+class="pt-8 border-t border-gray-800 flex flex-col md:flex-row justify-between items-center"
+>
+<p id="habeshanCopyright" class="text-gray-400 mb-4 md:mb-0 cursor-pointer hover:text-primary transition-colors">
+© 2025 Sinotruk Spare Parts. All Rights Reserved by Habeshan Tech.
+</p>
+<!-- Modal for Habeshan Tech Contact Info -->
+<div id="habeshanModal" class="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-50 hidden backdrop-blur-sm">
+  <div class="metallic bg-secondary border border-gray-700 text-white rounded-lg shadow-2xl max-w-md w-full p-8 relative">
+    <button id="closeHabeshanModal" class="absolute top-4 right-4 text-gray-400 hover:text-primary text-2xl transition-colors">&times;</button>
+    <h2 class="text-2xl font-bold mb-6 text-primary text-center">Contact Information</h2>
+    <div class="space-y-4">
+      <div class="flex items-start">
+        <i class="ri-map-pin-line text-primary mr-3 mt-1 text-xl"></i>
+        <div>
+          <strong class="text-gray-300">Our Location:</strong>
+          <p class="text-white">Addis Ababa, Ethiopia</p>
+        </div>
+      </div>
+      <div class="flex items-start">
+        <i class="ri-phone-line text-primary mr-3 mt-1 text-xl"></i>
+        <div>
+          <strong class="text-gray-300">Phone Number:</strong>
+          <p><a href="tel:+251997182868" class="text-primary hover:text-orange-400 transition-colors">+251 997182868</a></p>
+        </div>
+      </div>
+      <div class="flex items-start">
+        <i class="ri-mail-line text-primary mr-3 mt-1 text-xl"></i>
+        <div>
+          <strong class="text-gray-300">Email Address:</strong>
+          <p><a href="mailto:habeshantech21@gmail.com" class="text-primary hover:text-orange-400 transition-colors">habeshantech21@gmail.com</a></p>
+        </div>
+      </div>
+      <div class="flex items-start">
+        <i class="ri-telegram-line text-primary mr-3 mt-1 text-xl"></i>
+        <div>
+          <strong class="text-gray-300">Telegram:</strong>
+          <p><a href="https://t.me/HabeshanTech21" class="text-primary hover:text-orange-400 transition-colors" target="_blank" rel="noopener">@HabeshanTech21</a></p>
+        </div>
+      </div>
+      <div class="flex items-start">
+        <i class="ri-tiktok-line text-primary mr-3 mt-1 text-xl"></i>
+        <div>
+          <strong class="text-gray-300">TikTok:</strong>
+          <p><a href="https://www.tiktok.com/@habeshantech" class="text-primary hover:text-orange-400 transition-colors" target="_blank" rel="noopener">@habeshantech</a></p>
+        </div>
+      </div>
+      <div class="flex items-start">
+        <i class="ri-time-line text-primary mr-3 mt-1 text-xl"></i>
+        <div>
+          <strong class="text-gray-300">Working Hours:</strong>
+          <p class="text-white">Mon - Fri: 9:00 AM - 6:00 PM</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Contact Support Modal -->
+<div id="contactSupportModal" class="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-50 hidden backdrop-blur-sm">
+  <div class="metallic bg-secondary border border-gray-700 text-white rounded-lg shadow-2xl max-w-lg w-full p-8 relative">
+    <button id="closeContactModal" class="absolute top-4 right-4 text-gray-400 hover:text-primary text-2xl transition-colors">&times;</button>
+    <h2 class="text-2xl font-bold mb-6 text-primary text-center">Contact Support</h2>
+    <div class="space-y-6">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div class="flex items-start">
+          <i class="ri-phone-line text-primary mr-3 mt-1 text-xl"></i>
+          <div>
+            <strong class="text-gray-300">24/7 Support:</strong>
+            <p><a href="tel:+251997182868" class="text-primary hover:text-orange-400 transition-colors">+251 997182868</a></p>
+          </div>
+        </div>
+        <div class="flex items-start">
+          <i class="ri-mail-line text-primary mr-3 mt-1 text-xl"></i>
+          <div>
+            <strong class="text-gray-300">Email Support:</strong>
+            <p><a href="mailto:habeshantech21@gmail.com" class="text-primary hover:text-orange-400 transition-colors">habeshantech21@gmail.com</a></p>
+          </div>
+        </div>
+        <div class="flex items-start">
+          <i class="ri-telegram-line text-primary mr-3 mt-1 text-xl"></i>
+          <div>
+            <strong class="text-gray-300">Telegram:</strong>
+            <p><a href="https://t.me/HabeshanTech21" class="text-primary hover:text-orange-400 transition-colors" target="_blank" rel="noopener">@HabeshanTech21</a></p>
+          </div>
+        </div>
+        <div class="flex items-start">
+          <i class="ri-time-line text-primary mr-3 mt-1 text-xl"></i>
+          <div>
+            <strong class="text-gray-300">Business Hours:</strong>
+            <p class="text-white">Mon - Fri: 9:00 AM - 6:00 PM</p>
+          </div>
+        </div>
+      </div>
+      <div class="border-t border-gray-600 pt-4">
+        <h3 class="text-lg font-bold mb-3 text-primary">How can we help you?</h3>
+        <div class="space-y-3">
+          <div class="flex items-center p-3 bg-gray-800 rounded-lg hover:bg-gray-700 transition-colors cursor-pointer">
+            <i class="ri-tools-line text-primary mr-3"></i>
+            <span>Technical Support & Troubleshooting</span>
+          </div>
+          <div class="flex items-center p-3 bg-gray-800 rounded-lg hover:bg-gray-700 transition-colors cursor-pointer">
+            <i class="ri-shopping-cart-line text-primary mr-3"></i>
+            <span>Order Status & Shipping</span>
+          </div>
+          <div class="flex items-center p-3 bg-gray-800 rounded-lg hover:bg-gray-700 transition-colors cursor-pointer">
+            <i class="ri-file-list-line text-primary mr-3"></i>
+            <span>Parts Catalog & Compatibility</span>
+          </div>
+          <div class="flex items-center p-3 bg-gray-800 rounded-lg hover:bg-gray-700 transition-colors cursor-pointer">
+            <i class="ri-customer-service-line text-primary mr-3"></i>
+            <span>General Inquiries</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="flex space-x-6">
+<a
+  href="#"
+  class="text-gray-400 hover:text-primary transition-colors text-sm"
+  >Privacy Policy</a
+>
+<a
+  href="#"
+  class="text-gray-400 hover:text-primary transition-colors text-sm"
+  >Terms of Service</a
+>
+<a
+  href="#"
+  class="text-gray-400 hover:text-primary transition-colors text-sm"
+  >Shipping Policy</a
+>
+</div>
+</div>
+</div>
+</footer>
+<script id="dropdownScript">
+document.addEventListener("DOMContentLoaded", function () {
+const dropdownContainers = document.querySelectorAll(".dropdown-container");
+dropdownContainers.forEach((container) => {
+const selected = container.querySelector(".dropdown-selected");
+const options = container.querySelector(".dropdown-options");
+const optionItems = container.querySelectorAll(".dropdown-option");
+selected.addEventListener("click", function () {
+options.style.display =
+  options.style.display === "block" ? "none" : "block";
+});
+optionItems.forEach((option) => {
+option.addEventListener("click", function () {
+  selected.querySelector("span:first-child").textContent =
+    this.textContent;
+  options.style.display = "none";
+});
+});
+document.addEventListener("click", function (event) {
+if (!container.contains(event.target)) {
+  options.style.display = "none";
+}
+});
+});
+});
+</script>
+<script id="tabScript">
+document.addEventListener("DOMContentLoaded", function () {
+  const tabButtons = document.querySelectorAll(".tab-button");
+  
+  tabButtons.forEach((button) => {
+    button.addEventListener("click", function () {
+      // Remove active class from all buttons
+      tabButtons.forEach((btn) => btn.classList.remove("active"));
+      // Add active class to clicked button
+      this.classList.add("active");
+      
+      // Get the tab type from data attribute
+      const tabType = this.getAttribute('data-tab');
+      
+      // Apply tab filtering
+      applyTabFilter(tabType);
+    });
+  });
+  
+  // Function to apply tab filtering
+  function applyTabFilter(tabType) {
+    const allProducts = document.querySelectorAll('.product-card');
+    let visibleCount = 0;
+    
+    allProducts.forEach(product => {
+      let shouldShow = false;
+      
+      switch(tabType) {
+        case 'all-parts':
+          // Show all products
+          shouldShow = true;
+          break;
+          
+        case 'new-arrivals':
+          // Show only new arrival products
+          const isNewArrival = product.getAttribute('data-new-arrival') === 'true';
+          shouldShow = isNewArrival;
+          break;
+          
+        case 'best-sellers':
+          // Show only best seller products
+          const isBestSeller = product.getAttribute('data-best-seller') === 'true';
+          shouldShow = isBestSeller;
+          break;
+          
+        default:
+          shouldShow = true;
+      }
+      
+      if (shouldShow) {
+        product.style.display = 'block';
+        visibleCount++;
+      } else {
+        product.style.display = 'none';
+      }
+    });
+    
+    // Update results count
+    updateResultsCount(visibleCount);
+    
+    // Show/hide no results message
+    const noResultsMessage = document.getElementById('noResultsMessage');
+    if (noResultsMessage) {
+      if (visibleCount === 0) {
+        noResultsMessage.classList.remove('hidden');
+      } else {
+        noResultsMessage.classList.add('hidden');
+      }
+    }
+    
+    // Show/hide "Show All" button
+    const showAllProductsBtn = document.getElementById('showAllProductsBtn');
+    if (showAllProductsBtn) {
+      const totalProducts = document.querySelectorAll('.product-card').length;
+      if (visibleCount < totalProducts) {
+        showAllProductsBtn.classList.remove('hidden');
+      } else {
+        showAllProductsBtn.classList.add('hidden');
+      }
+    }
+    
+    // Show/hide "Filters Active" indicator
+    const filtersActiveIndicator = document.getElementById('filtersActiveIndicator');
+    if (filtersActiveIndicator) {
+      const totalProducts = document.querySelectorAll('.product-card').length;
+      if (visibleCount < totalProducts) {
+        filtersActiveIndicator.classList.remove('hidden');
+      } else {
+        filtersActiveIndicator.classList.add('hidden');
+      }
+    }
+    
+    // Reset load more state
+    resetLoadMoreState();
+    
+    // Update load more button visibility
+    updateLoadMoreButtonVisibility();
+    
+    // Show notification
+    if (visibleCount > 0) {
+      showNotification(`${tabType.replace('-', ' ').replace(/\b\w/g, l => l.toUpperCase())}: ${visibleCount} products found`);
+    } else {
+      showNotification(`No products found in ${tabType.replace('-', ' ').replace(/\b\w/g, l => l.toUpperCase())}`);
+    }
+  }
+  
+  // Initialize default tab state
+  applyTabFilter('all-parts');
+  
+  // Update tab counts
+  updateTabCounts();
+});
+
+// Function to update tab counts
+function updateTabCounts() {
+  const allProducts = document.querySelectorAll('.product-card');
+  const newArrivalProducts = document.querySelectorAll('.product-card[data-new-arrival="true"]');
+  const bestSellerProducts = document.querySelectorAll('.product-card[data-best-seller="true"]');
+  
+  // Update All Parts count
+  const allPartsCount = document.querySelector('[data-tab="all-parts"] .tab-count');
+  if (allPartsCount) {
+    allPartsCount.textContent = allProducts.length;
+  }
+  
+  // Update New Arrivals count
+  const newArrivalsCount = document.querySelector('[data-tab="new-arrivals"] .tab-count');
+  if (newArrivalsCount) {
+    newArrivalsCount.textContent = newArrivalProducts.length;
+  }
+  
+  // Update Best Sellers count
+  const bestSellersCount = document.querySelector('[data-tab="best-sellers"] .tab-count');
+  if (bestSellersCount) {
+    bestSellersCount.textContent = bestSellerProducts.length;
+  }
+}
+</script>
+<script id="animationScript">
+document.addEventListener("DOMContentLoaded", function () {
+// Sticky header
+const header = document.querySelector("header");
+window.addEventListener("scroll", function () {
+if (window.scrollY > 50) {
+header.classList.add("shadow-lg");
+} else {
+header.classList.remove("shadow-lg");
+}
+});
+
+// Intersection Observer for animations
+const observerOptions = {
+threshold: 0.2,
+rootMargin: "0px 0px -100px 0px",
+};
+
+const observer = new IntersectionObserver((entries) => {
+entries.forEach((entry) => {
+if (entry.isIntersecting) {
+  entry.target.classList.add("fade-in");
+  observer.unobserve(entry.target);
+}
+});
+}, observerOptions);
+
+// Observe all sections
+document.querySelectorAll("section").forEach((section) => {
+observer.observe(section);
+});
+
+// Add animation classes to hero content
+const heroContent = document.querySelector(
+".hero-section .container > div:first-child",
+);
+if (heroContent) {
+heroContent.classList.add("slide-in-left");
+}
+
+const heroImage = document.querySelector(
+".hero-section .container > div:last-child",
+);
+if (heroImage) {
+heroImage.classList.add("slide-in-right");
+}
+
+// Add animation to service cards
+document.querySelectorAll(".service-card").forEach((card, index) => {
+card.classList.add("fade-in", `animate-delay-${index + 1}`);
+});
+
+// Add animation to product cards
+document.querySelectorAll(".product-card").forEach((card, index) => {
+card.classList.add("fade-in", `animate-delay-${(index % 3) + 1}`);
+});
+
+// Add animation to timeline items
+document.querySelectorAll(".timeline-item").forEach((item, index) => {
+item.classList.add("fade-in", `animate-delay-${(index % 3) + 1}`);
+});
+
+// Function to reset load more state
+function resetLoadMoreState() {
+  currentIndex = 0;
+  
+  // Reset load more button visibility
+  if (loadMoreBtn) {
+    loadMoreBtn.style.display = 'flex';
+  }
+  if (showLessBtn) {
+    showLessBtn.classList.add('hidden');
+  }
+}
+
+// Load More Products functionality
+const loadMoreBtn = document.getElementById('loadMoreBtn');
+const showLessBtn = document.getElementById('showLessBtn');
+let currentIndex = 0;
+const productsPerLoad = 3;
+const initialVisibleCount = 6; // Number of products visible initially
+
+loadMoreBtn.addEventListener('click', function() {
+  // Get currently visible products based on active tab and filters
+  const visibleProducts = Array.from(document.querySelectorAll('.product-card[style*="block"]'));
+  const hiddenVisibleProducts = visibleProducts.filter(product => product.classList.contains('hidden'));
+  
+  const startIndex = currentIndex;
+  const endIndex = Math.min(currentIndex + productsPerLoad, hiddenVisibleProducts.length);
+  
+  for (let i = startIndex; i < endIndex; i++) {
+    if (hiddenVisibleProducts[i]) {
+      hiddenVisibleProducts[i].classList.remove('hidden');
+      hiddenVisibleProducts[i].classList.add('fade-in');
+    }
+  }
+  
+  currentIndex = endIndex;
+  
+  // Show "Show Less" button and hide "Load More" button if all products are loaded
+  if (currentIndex >= hiddenVisibleProducts.length) {
+    loadMoreBtn.style.display = 'none';
+    showLessBtn.classList.remove('hidden');
+  }
+});
+
+showLessBtn.addEventListener('click', function() {
+  // Get currently visible products based on active tab and filters
+  const visibleProducts = Array.from(document.querySelectorAll('.product-card[style*="block"]'));
+  
+  // Hide all products except the first 6
+  visibleProducts.forEach((card, index) => {
+    if (index >= initialVisibleCount) {
+      card.classList.add('hidden');
+      card.classList.remove('fade-in');
+    }
+  });
+  
+  // Reset current index
+  currentIndex = 0;
+  
+  // Show "Load More" button and hide "Show Less" button
+  loadMoreBtn.style.display = 'flex';
+  showLessBtn.classList.add('hidden');
+});
+
+// Favorites and Compare functionality
+let favorites = [];
+let compareList = [];
+
+// Favorite functionality
+document.addEventListener('click', function(e) {
+  if (e.target.closest('.favorite-btn')) {
+    const button = e.target.closest('.favorite-btn');
+    const productCard = button.closest('.product-card');
+    const productName = productCard.querySelector('h3').textContent;
+    const productDescription = productCard.querySelector('p').textContent;
+    const productCode = productDescription.split(' - ')[0];
+    const productImage = productCard.querySelector('img');
+    const imageSrc = productImage ? productImage.src : '';
+    const imageAlt = productImage ? productImage.alt : productName;
+    
+    const isFavorited = favorites.find(item => item.code === productCode);
+    
+    if (isFavorited) {
+      // Remove from favorites
+      favorites = favorites.filter(item => item.code !== productCode);
+      button.innerHTML = '<i class="ri-heart-line"></i>';
+      button.classList.remove('text-red-500');
+      showNotification(`${productName} removed from favorites!`);
+    } else {
+      // Add to favorites
+      favorites.push({
+        name: productName,
+        code: productCode,
+        description: productDescription,
+        imageSrc: imageSrc,
+        imageAlt: imageAlt
+      });
+      button.innerHTML = '<i class="ri-heart-fill"></i>';
+      button.classList.add('text-red-500');
+      showNotification(`${productName} added to favorites!`);
+    }
+    
+    updateFavoritesBadge();
+    updateFavoritesCompareVisibility();
+  }
+});
+
+// Compare functionality
+document.addEventListener('click', function(e) {
+  if (e.target.closest('.compare-btn')) {
+    const button = e.target.closest('.compare-btn');
+    const productCard = button.closest('.product-card');
+    const productName = productCard.querySelector('h3').textContent;
+    const productDescription = productCard.querySelector('p').textContent;
+    const productCode = productDescription.split(' - ')[0];
+    const productImage = productCard.querySelector('img');
+    const imageSrc = productImage ? productImage.src : '';
+    const imageAlt = productImage ? productImage.alt : productName;
+    
+    const isCompared = compareList.find(item => item.code === productCode);
+    
+    if (isCompared) {
+      // Remove from compare
+      compareList = compareList.filter(item => item.code !== productCode);
+      button.innerHTML = '<i class="ri-scales-line"></i>';
+      button.classList.remove('text-blue-500');
+      showNotification(`${productName} removed from compare!`);
+    } else {
+      // Add to compare (no item limit)
+      compareList.push({
+        name: productName,
+        code: productCode,
+        description: productDescription,
+        imageSrc: imageSrc,
+        imageAlt: imageAlt
+      });
+      button.innerHTML = '<i class="ri-scales-fill"></i>';
+      button.classList.add('text-blue-500');
+      showNotification(`${productName} added to compare!`);
+    }
+    
+    updateCompareBadge();
+    updateFavoritesCompareVisibility();
+  }
+});
+
+
+
+// Update favorites badge
+function updateFavoritesBadge() {
+  const totalFavorites = favorites.length;
+  const favoritesBadge = document.getElementById('favoritesBadge');
+  
+  if (favoritesBadge) {
+    if (totalFavorites > 0) {
+      favoritesBadge.textContent = totalFavorites;
+      favoritesBadge.style.display = 'flex';
+    } else {
+      favoritesBadge.style.display = 'none';
+    }
+  }
+}
+
+// Update compare badge
+function updateCompareBadge() {
+  const totalCompare = compareList.length;
+  const compareBadge = document.getElementById('compareBadge');
+  
+  if (compareBadge) {
+    if (totalCompare > 0) {
+      compareBadge.textContent = totalCompare;
+      compareBadge.style.display = 'flex';
+    } else {
+      compareBadge.style.display = 'none';
+    }
+  }
+}
+
+// Show notification
+function showNotification(message) {
+  // Remove existing notification
+  const existingNotification = document.querySelector('.notification');
+  if (existingNotification) {
+    existingNotification.remove();
+  }
+  
+  // Create new notification
+  const notification = document.createElement('div');
+  notification.className = 'notification fixed top-4 right-4 bg-green-600 text-white px-6 py-3 rounded-lg shadow-lg z-50 transform transition-all duration-300 translate-x-full';
+  notification.textContent = message;
+  
+  document.body.appendChild(notification);
+  
+  // Animate in
+  setTimeout(() => {
+    notification.classList.remove('translate-x-full');
+  }, 100);
+  
+  // Animate out and remove
+  setTimeout(() => {
+    notification.classList.add('translate-x-full');
+    setTimeout(() => {
+      notification.remove();
+    }, 300);
+  }, 3000);
+}
+
+// Initialize badges
+updateFavoritesBadge();
+updateCompareBadge();
+
+// Function to check if user is in products section
+function isInProductsSection() {
+  const productsSection = document.getElementById('products');
+  if (!productsSection) return false;
+  
+  const rect = productsSection.getBoundingClientRect();
+  const windowHeight = window.innerHeight;
+  
+  // Check if products section is visible (at least 20% of the section is in view)
+  const sectionHeight = rect.height;
+  const visibleHeight = Math.min(rect.bottom, windowHeight) - Math.max(rect.top, 0);
+  const visibilityRatio = visibleHeight / sectionHeight;
+  
+  return visibilityRatio > 0.2;
+}
+
+// Function to show/hide favorites and compare buttons based on scroll position and user activity
+function updateFavoritesCompareVisibility() {
+  const viewFavoritesBtn = document.getElementById('viewFavoritesBtn');
+  const viewCompareBtn = document.getElementById('viewCompareBtn');
+  
+  if (!viewFavoritesBtn || !viewCompareBtn) return;
+  
+  const inProductsSection = isInProductsSection();
+  const hasFavorites = favorites.length > 0;
+  const hasCompareItems = compareList.length > 0;
+  
+  // Show favorites button if in products section OR has favorites
+  if (inProductsSection || hasFavorites) {
+    viewFavoritesBtn.classList.remove('hidden');
+  } else {
+    viewFavoritesBtn.classList.add('hidden');
+  }
+  
+  // Show compare button if in products section OR has compare items
+  if (inProductsSection || hasCompareItems) {
+    viewCompareBtn.classList.remove('hidden');
+  } else {
+    viewCompareBtn.classList.add('hidden');
+  }
+}
+
+// Initial visibility check
+updateFavoritesCompareVisibility();
+
+// Update visibility on scroll (with throttling for performance)
+let scrollTimeout;
+window.addEventListener('scroll', function() {
+  clearTimeout(scrollTimeout);
+  scrollTimeout = setTimeout(() => {
+    updateFavoritesCompareVisibility();
+  }, 100);
+});
+
+// Explore Products functionality
+const exploreProductsBtn = document.getElementById('exploreProductsBtn');
+if (exploreProductsBtn) {
+  exploreProductsBtn.addEventListener('click', function() {
+    // Smooth scroll to products section
+    const productsSection = document.getElementById('products');
+    if (productsSection) {
+      productsSection.scrollIntoView({ 
+        behavior: 'smooth',
+        block: 'start'
+      });
+      // Update visibility after scrolling
+      setTimeout(() => {
+        updateFavoritesCompareVisibility();
+      }, 1000);
+    }
+  });
+}
+
+// Contact Support functionality
+const contactSupportBtn = document.getElementById('contactSupportBtn');
+const contactSupportModal = document.getElementById('contactSupportModal');
+const closeContactModal = document.getElementById('closeContactModal');
+
+if (contactSupportBtn && contactSupportModal && closeContactModal) {
+  contactSupportBtn.addEventListener('click', function() {
+    contactSupportModal.classList.remove('hidden');
+  });
+  
+  closeContactModal.addEventListener('click', function() {
+    contactSupportModal.classList.add('hidden');
+  });
+  
+  contactSupportModal.addEventListener('click', function(e) {
+    if (e.target === contactSupportModal) {
+      contactSupportModal.classList.add('hidden');
+    }
+  });
+}
+
+// Apply Filters functionality
+const applyFiltersBtn = document.getElementById('applyFiltersBtn');
+if (applyFiltersBtn) {
+  applyFiltersBtn.addEventListener('click', function() {
+    applyFilters();
+    
+    // Add visual feedback
+    applyFiltersBtn.innerHTML = '<i class="ri-check-line mr-2"></i>Applied!';
+    applyFiltersBtn.classList.add('bg-green-600');
+    
+    setTimeout(() => {
+      applyFiltersBtn.innerHTML = 'Apply Filters';
+      applyFiltersBtn.classList.remove('bg-green-600');
+    }, 2000);
+  });
+}
+
+// Function to apply filters
+function applyFilters() {
+  const selectedCategories = Array.from(document.querySelectorAll('input[type="checkbox"][value*="Parts"], input[type="checkbox"][value*="System"], input[type="checkbox"][value*="Transmission"], input[type="checkbox"][value*="Electrical"], input[type="checkbox"][value*="Chassis"]:checked'))
+    .map(checkbox => checkbox.value);
+  
+  const selectedModels = Array.from(document.querySelectorAll('input[type="checkbox"][value*="HOWO"], input[type="checkbox"][value*="SITRAK"], input[type="checkbox"][value*="SINO"]:checked'))
+    .map(checkbox => checkbox.value);
+  
+  // Get the currently active tab
+  const activeTab = document.querySelector('.tab-button.active');
+  const activeTabType = activeTab ? activeTab.getAttribute('data-tab') : 'all-parts';
+  
+  const allProducts = document.querySelectorAll('.product-card');
+  let visibleCount = 0;
+  
+  allProducts.forEach(product => {
+    const productCategory = product.getAttribute('data-category');
+    const productModels = product.getAttribute('data-models').split(',');
+    
+    // First check if product matches the active tab
+    let tabMatch = true;
+    switch(activeTabType) {
+      case 'new-arrivals':
+        tabMatch = product.getAttribute('data-new-arrival') === 'true';
+        break;
+      case 'best-sellers':
+        tabMatch = product.getAttribute('data-best-seller') === 'true';
+        break;
+      case 'all-parts':
+      default:
+        tabMatch = true;
+        break;
+    }
+    
+    // Then check if product matches selected categories
+    const categoryMatch = selectedCategories.length === 0 || selectedCategories.includes(productCategory);
+    
+    // Then check if product matches selected models
+    const modelMatch = selectedModels.length === 0 || productModels.some(model => selectedModels.includes(model.trim()));
+    
+    // Product must match tab, category, AND model filters
+    if (tabMatch && categoryMatch && modelMatch) {
+      product.style.display = 'block';
+      visibleCount++;
+    } else {
+      product.style.display = 'none';
+    }
+  });
+  
+  // Show/hide no results message
+  const noResultsMessage = document.getElementById('noResultsMessage');
+  if (noResultsMessage) {
+    if (visibleCount === 0) {
+      noResultsMessage.classList.remove('hidden');
+    } else {
+      noResultsMessage.classList.add('hidden');
+    }
+  }
+  
+  // Show/hide "Show All" button
+  const showAllProductsBtn = document.getElementById('showAllProductsBtn');
+  if (showAllProductsBtn) {
+    const totalProducts = document.querySelectorAll('.product-card').length;
+    if (visibleCount < totalProducts) {
+      showAllProductsBtn.classList.remove('hidden');
+    } else {
+      showAllProductsBtn.classList.add('hidden');
+    }
+  }
+  
+  // Show/hide "Filters Active" indicator
+  const filtersActiveIndicator = document.getElementById('filtersActiveIndicator');
+  if (filtersActiveIndicator) {
+    const totalProducts = document.querySelectorAll('.product-card').length;
+    if (visibleCount < totalProducts) {
+      filtersActiveIndicator.classList.remove('hidden');
+    } else {
+      filtersActiveIndicator.classList.add('hidden');
+    }
+  }
+  
+  // Show notification with results
+  if (visibleCount > 0) {
+    showNotification(`Filters applied: ${visibleCount} products found`);
+  } else {
+    showNotification('No products match the selected filters');
+  }
+  
+  // Update results count display
+  updateResultsCount(visibleCount);
+  
+  // Reset load more state
+  resetLoadMoreState();
+  
+  // Update load more button visibility
+  updateLoadMoreButtonVisibility();
+  
+  // Update tab counts
+  updateTabCounts();
+}
+
+// Function to update results count display
+function updateResultsCount(count) {
+  const resultsCountElement = document.getElementById('resultsCount');
+  if (resultsCountElement) {
+    resultsCountElement.textContent = count;
+  }
+}
+
+// Function to update load more button visibility based on filtered results
+function updateLoadMoreButtonVisibility() {
+  const visibleProducts = document.querySelectorAll('.product-card[style*="block"]');
+  const loadMoreBtn = document.getElementById('loadMoreBtn');
+  const showLessBtn = document.getElementById('showLessBtn');
+  
+  if (visibleProducts.length <= 6) {
+    if (loadMoreBtn) loadMoreBtn.style.display = 'none';
+    if (showLessBtn) showLessBtn.classList.add('hidden');
+  } else {
+    if (loadMoreBtn) loadMoreBtn.style.display = 'flex';
+  }
+}
+
+// Add event listeners to filter checkboxes for real-time filtering
+document.addEventListener('DOMContentLoaded', function() {
+  const filterCheckboxes = document.querySelectorAll('input[type="checkbox"]');
+  filterCheckboxes.forEach(checkbox => {
+    checkbox.addEventListener('change', function() {
+      // Auto-apply filters when checkboxes change
+      setTimeout(() => {
+        applyFilters();
+      }, 100);
+    });
+  });
+  
+  // Clear All Filters functionality
+  const clearFiltersBtn = document.getElementById('clearFiltersBtn');
+  if (clearFiltersBtn) {
+    clearFiltersBtn.addEventListener('click', function() {
+      // Uncheck all filter checkboxes
+      filterCheckboxes.forEach(checkbox => {
+        checkbox.checked = false;
+      });
+      
+      // Apply filters to show products based on active tab
+      applyFilters();
+      
+      showNotification('All filters cleared');
+    });
+  }
+  
+  // Reset to Default functionality
+  const resetFiltersBtn = document.getElementById('resetFiltersBtn');
+  if (resetFiltersBtn) {
+    resetFiltersBtn.addEventListener('click', function() {
+      // Reset to default state (Engine Parts and HOWO A7 checked)
+      filterCheckboxes.forEach(checkbox => {
+        if (checkbox.value === 'Engine Parts' || checkbox.value === 'HOWO A7') {
+          checkbox.checked = true;
+        } else {
+          checkbox.checked = false;
+        }
+      });
+      
+      // Apply the default filters
+      applyFilters();
+      showNotification('Filters reset to default');
+    });
+  }
+  
+  // Clear Categories functionality
+  const clearCategoriesBtn = document.getElementById('clearCategoriesBtn');
+  if (clearCategoriesBtn) {
+    clearCategoriesBtn.addEventListener('click', function() {
+      // Uncheck only category checkboxes
+      const categoryCheckboxes = document.querySelectorAll('input[type="checkbox"][value*="Parts"], input[type="checkbox"][value*="System"], input[type="checkbox"][value*="Transmission"], input[type="checkbox"][value*="Electrical"], input[type="checkbox"][value*="Chassis"]');
+      categoryCheckboxes.forEach(checkbox => {
+        checkbox.checked = false;
+      });
+      
+      // Apply filters to update display
+      applyFilters();
+      showNotification('Categories cleared');
+    });
+  }
+  
+  // Clear Models functionality
+  const clearModelsBtn = document.getElementById('clearModelsBtn');
+  if (clearModelsBtn) {
+    clearModelsBtn.addEventListener('click', function() {
+      // Uncheck only model checkboxes
+      const modelCheckboxes = document.querySelectorAll('input[type="checkbox"][value*="HOWO"], input[type="checkbox"][value*="SITRAK"], input[type="checkbox"][value*="SINO"]');
+      modelCheckboxes.forEach(checkbox => {
+        checkbox.checked = false;
+      });
+      
+      // Apply filters to update display
+      applyFilters();
+      showNotification('Models cleared');
+    });
+  }
+  
+  // Clear Filters from No Results Message
+  const clearFiltersNoResults = document.getElementById('clearFiltersNoResults');
+  if (clearFiltersNoResults) {
+    clearFiltersNoResults.addEventListener('click', function() {
+      // Uncheck all filter checkboxes
+      filterCheckboxes.forEach(checkbox => {
+        checkbox.checked = false;
+      });
+      
+      // Apply filters to show products based on active tab
+      applyFilters();
+      
+      showNotification('All filters cleared');
+    });
+  }
+  
+  // Show All Products functionality
+  const showAllProductsBtn = document.getElementById('showAllProductsBtn');
+  if (showAllProductsBtn) {
+    showAllProductsBtn.addEventListener('click', function() {
+      // Uncheck all filter checkboxes
+      filterCheckboxes.forEach(checkbox => {
+        checkbox.checked = false;
+      });
+      
+      // Apply filters to show products based on active tab
+      applyFilters();
+      
+      showNotification('Showing all products within current tab');
+    });
+  }
+});
+
+// Product Details Modal functionality
+const productDetailsModal = document.getElementById('productDetailsModal');
+const closeProductDetailsModal = document.getElementById('closeProductDetailsModal');
+
+if (productDetailsModal && closeProductDetailsModal) {
+  closeProductDetailsModal.addEventListener('click', function() {
+    productDetailsModal.classList.add('hidden');
+  });
+  
+  productDetailsModal.addEventListener('click', function(e) {
+    if (e.target === productDetailsModal) {
+      productDetailsModal.classList.add('hidden');
+    }
+  });
+}
+
+// Function to show product details
+function showProductDetails(productName) {
+  const productDetailsModal = document.getElementById('productDetailsModal');
+  const productDetailsContent = document.getElementById('productDetailsContent');
+  
+  if (!productDetailsModal || !productDetailsContent) return;
+  
+  // Find the product in favorites or compare list
+  let product = favorites.find(item => item.name === productName) || 
+                compareList.find(item => item.name === productName);
+  
+  if (!product) {
+    showNotification('Product not found!');
+    return;
+  }
+  
+  productDetailsContent.innerHTML = `
+    <div class="flex flex-col lg:flex-row gap-8">
+      <div class="lg:w-1/2">
+        <img src="${product.imageSrc}" alt="${product.imageAlt}" class="w-full h-96 object-cover rounded-lg">
+      </div>
+      <div class="lg:w-1/2">
+        <h2 class="text-3xl font-bold mb-4 text-primary">${product.name}</h2>
+        <div class="space-y-4">
+          <div class="bg-gray-800 p-4 rounded-lg">
+            <h3 class="text-lg font-bold mb-2">Product Information</h3>
+            <p class="text-gray-300"><strong>Product Code:</strong> ${product.code}</p>
+            <p class="text-gray-300"><strong>Description:</strong> ${product.description}</p>
+          </div>
+          <div class="bg-gray-800 p-4 rounded-lg">
+            <h3 class="text-lg font-bold mb-2">Compatibility</h3>
+            <p class="text-gray-300">This product is compatible with various HOWO truck models. Please consult our compatibility guide for specific model requirements.</p>
+          </div>
+          <div class="bg-gray-800 p-4 rounded-lg">
+            <h3 class="text-lg font-bold mb-2">Technical Specifications</h3>
+            <ul class="text-gray-300 space-y-1">
+              <li>• Genuine OEM part</li>
+              <li>• High-quality materials</li>
+              <li>• Manufacturer warranty</li>
+              <li>• Certified compatibility</li>
+            </ul>
+          </div>
+        </div>
+        <div class="flex space-x-4 mt-6">
+          <button class="flex-1 bg-primary hover:bg-orange-700 text-white py-3 rounded-button font-bold">
+            <i class="ri-phone-line mr-2"></i>Contact for Quote
+          </button>
+          <button class="flex-1 bg-secondary hover:bg-gray-700 text-white py-3 rounded-button font-bold">
+            <i class="ri-information-line mr-2"></i>Request Info
+          </button>
+        </div>
+      </div>
+    </div>
+  `;
+  
+  productDetailsModal.classList.remove('hidden');
+}
+
+// Habeshan Tech Modal functionality
+const habeshanCopyright = document.getElementById('habeshanCopyright');
+const habeshanModal = document.getElementById('habeshanModal');
+const closeHabeshanModal = document.getElementById('closeHabeshanModal');
+
+if (habeshanCopyright && habeshanModal && closeHabeshanModal) {
+  habeshanCopyright.addEventListener('click', function() {
+    habeshanModal.classList.remove('hidden');
+  });
+  
+  closeHabeshanModal.addEventListener('click', function() {
+    habeshanModal.classList.add('hidden');
+  });
+  
+  habeshanModal.addEventListener('click', function(e) {
+    if (e.target === habeshanModal) {
+      habeshanModal.classList.add('hidden');
+    }
+  });
+}
+
+// View Favorites Modal functionality
+const viewFavoritesBtn = document.getElementById('viewFavoritesBtn');
+const favoritesModal = document.getElementById('favoritesModal');
+const closeFavoritesModal = document.getElementById('closeFavoritesModal');
+
+if (viewFavoritesBtn && favoritesModal && closeFavoritesModal) {
+  viewFavoritesBtn.addEventListener('click', function() {
+    updateFavoritesModal();
+    favoritesModal.classList.remove('hidden');
+  });
+  
+  closeFavoritesModal.addEventListener('click', function() {
+    favoritesModal.classList.add('hidden');
+  });
+  
+  favoritesModal.addEventListener('click', function(e) {
+    if (e.target === favoritesModal) {
+      favoritesModal.classList.add('hidden');
+    }
+  });
+}
+
+// View Compare Modal functionality
+const viewCompareBtn = document.getElementById('viewCompareBtn');
+const compareModal = document.getElementById('compareModal');
+const closeCompareModal = document.getElementById('closeCompareModal');
+
+if (viewCompareBtn && compareModal && closeCompareModal) {
+  viewCompareBtn.addEventListener('click', function() {
+    updateCompareModal();
+    compareModal.classList.remove('hidden');
+  });
+  
+  closeCompareModal.addEventListener('click', function() {
+    compareModal.classList.add('hidden');
+  });
+  
+  compareModal.addEventListener('click', function(e) {
+    if (e.target === compareModal) {
+      compareModal.classList.add('hidden');
+    }
+  });
+}
+
+// Function to update favorites modal content
+function updateFavoritesModal() {
+  const favoritesList = document.getElementById('favoritesList');
+  if (favoritesList) {
+    favoritesList.innerHTML = '';
+    
+    if (favorites.length === 0) {
+      favoritesList.innerHTML = '<p class="text-gray-400 text-center py-8">No favorites added yet.</p>';
+      return;
+    }
+    
+    favorites.forEach((item, index) => {
+      const favoriteItem = document.createElement('div');
+      favoriteItem.className = 'bg-secondary rounded-lg mb-4 overflow-hidden';
+      favoriteItem.innerHTML = `
+        <div class="flex flex-col md:flex-row">
+          <div class="md:w-1/3">
+            <img src="${item.imageSrc}" alt="${item.imageAlt}" class="w-full h-48 md:h-full object-cover">
+          </div>
+          <div class="flex-1 p-4">
+            <div class="flex items-start justify-between mb-3">
+              <div class="flex-1">
+                <div class="flex items-center space-x-2 mb-2">
+                  <i class="ri-heart-fill text-red-500 text-xl"></i>
+                  <h4 class="font-bold text-white text-lg">${item.name}</h4>
+                </div>
+                <p class="text-gray-300 text-sm mb-2"><strong>Code:</strong> ${item.code}</p>
+                <p class="text-gray-400 text-sm">${item.description}</p>
+              </div>
+              <button class="remove-favorite-btn bg-red-600 hover:bg-red-700 text-white px-3 py-2 rounded-button text-sm ml-4" data-index="${index}">
+                <i class="ri-delete-bin-line mr-1"></i>Remove
+              </button>
+            </div>
+            <div class="flex space-x-2">
+              <button class="view-product-btn bg-primary hover:bg-orange-700 text-white px-4 py-2 rounded-button text-sm flex items-center" data-name="${item.name}">
+                <i class="ri-eye-line mr-1"></i>View Details
+              </button>
+              <button class="add-to-compare-btn bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-button text-sm flex items-center" data-code="${item.code}">
+                <i class="ri-scales-line mr-1"></i>Add to Compare
+              </button>
+            </div>
+          </div>
+        </div>
+      `;
+      favoritesList.appendChild(favoriteItem);
+    });
+    
+    // Add event listeners for remove buttons
+    document.querySelectorAll('.remove-favorite-btn').forEach(btn => {
+      btn.addEventListener('click', function() {
+        const index = parseInt(this.getAttribute('data-index'));
+        const itemName = favorites[index].name;
+        favorites.splice(index, 1);
+        updateFavoritesBadge();
+        updateFavoritesModal();
+        updateFavoritesCompareVisibility();
+        showNotification(`${itemName} removed from favorites!`);
+      });
+    });
+    
+    // Add event listeners for view details buttons
+    document.querySelectorAll('.view-product-btn').forEach(btn => {
+      btn.addEventListener('click', function() {
+        const productName = this.getAttribute('data-name');
+        showProductDetails(productName);
+      });
+    });
+    
+    // Add event listeners for add to compare buttons
+    document.querySelectorAll('.add-to-compare-btn').forEach(btn => {
+      btn.addEventListener('click', function() {
+        const productCode = this.getAttribute('data-code');
+        const favoriteItem = favorites.find(item => item.code === productCode);
+        
+        if (favoriteItem) {
+          const isAlreadyInCompare = compareList.find(item => item.code === productCode);
+          if (isAlreadyInCompare) {
+            showNotification(`${favoriteItem.name} is already in compare list!`);
+          } else {
+            compareList.push(favoriteItem);
+            updateCompareBadge();
+            updateFavoritesCompareVisibility();
+            showNotification(`${favoriteItem.name} added to compare!`);
+          }
+        }
+      });
+    });
+  }
+}
+
+// Function to update compare modal content
+function updateCompareModal() {
+  const compareListElement = document.getElementById('compareList');
+  if (compareListElement) {
+    compareListElement.innerHTML = '';
+    
+    if (compareList.length === 0) {
+      compareListElement.innerHTML = '<p class="text-gray-400 text-center py-8">No items to compare.</p>';
+      return;
+    }
+    
+    compareList.forEach((item, index) => {
+      const compareItem = document.createElement('div');
+      compareItem.className = 'bg-secondary rounded-lg mb-4 overflow-hidden';
+      compareItem.innerHTML = `
+        <div class="flex flex-col md:flex-row">
+          <div class="md:w-1/3">
+            <img src="${item.imageSrc}" alt="${item.imageAlt}" class="w-full h-48 md:h-full object-cover">
+          </div>
+          <div class="flex-1 p-4">
+            <div class="flex items-start justify-between mb-3">
+              <div class="flex-1">
+                <div class="flex items-center space-x-2 mb-2">
+                  <i class="ri-scales-fill text-blue-500 text-xl"></i>
+                  <h4 class="font-bold text-white text-lg">${item.name}</h4>
+                </div>
+                <p class="text-gray-300 text-sm mb-2"><strong>Code:</strong> ${item.code}</p>
+                <p class="text-gray-400 text-sm">${item.description}</p>
+              </div>
+              <button class="remove-compare-btn bg-blue-600 hover:bg-blue-700 text-white px-3 py-2 rounded-button text-sm ml-4" data-index="${index}">
+                <i class="ri-delete-bin-line mr-1"></i>Remove
+              </button>
+            </div>
+            <div class="flex space-x-2">
+              <button class="view-product-btn bg-primary hover:bg-orange-700 text-white px-4 py-2 rounded-button text-sm flex items-center" data-name="${item.name}">
+                <i class="ri-eye-line mr-1"></i>View Details
+              </button>
+              <button class="add-to-favorites-btn bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-button text-sm flex items-center" data-code="${item.code}">
+                <i class="ri-heart-line mr-1"></i>Add to Favorites
+              </button>
+            </div>
+          </div>
+        </div>
+      `;
+      compareListElement.appendChild(compareItem);
+    });
+    
+    // Add event listeners for remove buttons
+    document.querySelectorAll('.remove-compare-btn').forEach(btn => {
+      btn.addEventListener('click', function() {
+        const index = parseInt(this.getAttribute('data-index'));
+        const itemName = compareList[index].name;
+        compareList.splice(index, 1);
+        updateCompareBadge();
+        updateCompareModal();
+        updateFavoritesCompareVisibility();
+        showNotification(`${itemName} removed from compare!`);
+      });
+    });
+    
+    // Add event listeners for view details buttons
+    document.querySelectorAll('.view-product-btn').forEach(btn => {
+      btn.addEventListener('click', function() {
+        const productName = this.getAttribute('data-name');
+        showProductDetails(productName);
+      });
+    });
+    
+    // Add event listeners for add to favorites buttons
+    document.querySelectorAll('.add-to-favorites-btn').forEach(btn => {
+      btn.addEventListener('click', function() {
+        const productCode = this.getAttribute('data-code');
+        const compareItem = compareList.find(item => item.code === productCode);
+        
+        if (compareItem) {
+          const isAlreadyInFavorites = favorites.find(item => item.code === productCode);
+          if (isAlreadyInFavorites) {
+            showNotification(`${compareItem.name} is already in favorites!`);
+          } else {
+            favorites.push(compareItem);
+            updateFavoritesBadge();
+            updateFavoritesCompareVisibility();
+            showNotification(`${compareItem.name} added to favorites!`);
+          }
+        }
+      });
+    });
+  }
+}
+});
+</script>
+
+<!-- Favorites Modal -->
+<div id="favoritesModal" class="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-50 hidden backdrop-blur-sm">
+  <div class="bg-secondary border border-gray-700 text-white rounded-lg shadow-2xl max-w-2xl w-full p-8 relative max-h-[80vh] overflow-y-auto">
+    <button id="closeFavoritesModal" class="absolute top-4 right-4 text-gray-400 hover:text-primary text-2xl transition-colors">&times;</button>
+    <h2 class="text-2xl font-bold mb-6 text-primary text-center">My Favorites</h2>
+    <div id="favoritesList" class="space-y-3">
+      <!-- Favorites will be dynamically populated here -->
+    </div>
+  </div>
+</div>
+
+<!-- Compare Modal -->
+<div id="compareModal" class="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-50 hidden backdrop-blur-sm">
+  <div class="bg-secondary border border-gray-700 text-white rounded-lg shadow-2xl max-w-2xl w-full p-8 relative max-h-[80vh] overflow-y-auto">
+    <button id="closeCompareModal" class="absolute top-4 right-4 text-gray-400 hover:text-primary text-2xl transition-colors">&times;</button>
+    <h2 class="text-2xl font-bold mb-6 text-primary text-center">Compare Items</h2>
+    <div id="compareList" class="space-y-3">
+      <!-- Compare items will be dynamically populated here -->
+    </div>
+  </div>
+</div>
+
+<!-- Product Details Modal -->
+<div id="productDetailsModal" class="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-50 hidden backdrop-blur-sm">
+  <div class="bg-secondary border border-gray-700 text-white rounded-lg shadow-2xl max-w-4xl w-full p-8 relative max-h-[90vh] overflow-y-auto">
+    <button id="closeProductDetailsModal" class="absolute top-4 right-4 text-gray-400 hover:text-primary text-2xl transition-colors">&times;</button>
+    <div id="productDetailsContent" class="space-y-6">
+      <!-- Product details will be dynamically populated here -->
+    </div>
+  </div>
+</div>
+</body>
+</html>
