@@ -1682,17 +1682,11 @@ Contact Support
         </div>
         
         <div class="mt-10 flex justify-center">
-<button id="loadMoreBtn" class="bg-primary text-white px-6 py-3 !rounded-button flex items-center whitespace-nowrap">
+<button id="toggleProductsBtn" class="bg-primary text-white px-6 py-3 !rounded-button flex items-center whitespace-nowrap">
 <span class="w-6 h-6 flex items-center justify-center mr-2">
 <i class="ri-loader-4-line"></i>
 </span>
 Load More Products
-</button>
-<button id="showLessBtn" class="bg-secondary text-white px-6 py-3 !rounded-button flex items-center whitespace-nowrap ml-4 hidden">
-<span class="w-6 h-6 flex items-center justify-center mr-2">
-<i class="ri-arrow-up-line"></i>
-</span>
-Show Less
 </button>
 </div>
 </div>
@@ -2761,8 +2755,6 @@ item.classList.add("fade-in", `animate-delay-${(index % 3) + 1}`);
 
 // Function to reset load more state
 function resetLoadMoreState() {
-  currentIndex = 0;
-  
   // Ensure only the first initialVisibleCount visible products are shown
   const visibleProducts = Array.from(document.querySelectorAll('.product-card[style*="block"]'));
   visibleProducts.forEach((card, index) => {
@@ -2774,65 +2766,52 @@ function resetLoadMoreState() {
     }
   });
   
-  // Reset buttons: show Load More if more than initialVisibleCount are visible, hide Show Less
-  if (loadMoreBtn) {
-    loadMoreBtn.style.display = visibleProducts.length > initialVisibleCount ? 'flex' : 'none';
-  }
-  if (showLessBtn) {
-    showLessBtn.classList.add('hidden');
+  // Reset toggle button text
+  if (toggleProductsBtn) {
+    toggleProductsBtn.textContent = 'Load More Products';
   }
 }
 
-// Load More Products functionality
-const loadMoreBtn = document.getElementById('loadMoreBtn');
-const showLessBtn = document.getElementById('showLessBtn');
-let currentIndex = 0;
-const productsPerLoad = 3;
-const initialVisibleCount = 9; // Number of products visible initially
+// Load More/Show Less toggle functionality
+const toggleProductsBtn = document.getElementById('toggleProductsBtn');
+const initialVisibleCount = 9; // First 3 rows (3 columns)
 
-loadMoreBtn.addEventListener('click', function() {
-  // Get currently visible products based on active tab and filters
+function revealExtraProducts() {
   const visibleProducts = Array.from(document.querySelectorAll('.product-card[style*="block"]'));
-  const hiddenVisibleProducts = visibleProducts.filter(product => product.classList.contains('hidden'));
-  
-  const startIndex = currentIndex;
-  const endIndex = Math.min(currentIndex + productsPerLoad, hiddenVisibleProducts.length);
-  
-  for (let i = startIndex; i < endIndex; i++) {
-    if (hiddenVisibleProducts[i]) {
-      hiddenVisibleProducts[i].classList.remove('hidden');
-      hiddenVisibleProducts[i].classList.add('fade-in');
+  visibleProducts.forEach((card, index) => {
+    if (index >= initialVisibleCount) {
+      card.classList.remove('hidden');
+      card.classList.add('fade-in');
     }
-  }
-  
-  currentIndex = endIndex;
-  
-  // Show "Show Less" button and hide "Load More" button if all products are loaded
-  if (currentIndex >= hiddenVisibleProducts.length) {
-    loadMoreBtn.style.display = 'none';
-    showLessBtn.classList.remove('hidden');
-  }
-});
+  });
+}
 
-showLessBtn.addEventListener('click', function() {
-  // Get currently visible products based on active tab and filters
+function hideExtraProducts() {
   const visibleProducts = Array.from(document.querySelectorAll('.product-card[style*="block"]'));
-  
-  // Hide all products except the first initialVisibleCount
   visibleProducts.forEach((card, index) => {
     if (index >= initialVisibleCount) {
       card.classList.add('hidden');
       card.classList.remove('fade-in');
     }
   });
-  
-  // Reset current index
-  currentIndex = 0;
-  
-  // Show "Load More" button and hide "Show Less" button
-  loadMoreBtn.style.display = 'flex';
-  showLessBtn.classList.add('hidden');
-});
+}
+
+function isShowingAll() {
+  const visibleProducts = Array.from(document.querySelectorAll('.product-card[style*="block"]'));
+  return visibleProducts.every((card, index) => index < initialVisibleCount || !card.classList.contains('hidden'));
+}
+
+if (toggleProductsBtn) {
+  toggleProductsBtn.addEventListener('click', function() {
+    if (isShowingAll()) {
+      hideExtraProducts();
+      toggleProductsBtn.textContent = 'Load More Products';
+    } else {
+      revealExtraProducts();
+      toggleProductsBtn.textContent = 'Show Less';
+    }
+  });
+}
 
 // Favorites and Compare functionality
 let favorites = [];
@@ -3215,17 +3194,17 @@ function updateResultsCount(count) {
   }
 }
 
-// Function to update load more button visibility based on filtered results
+// Function to update toggle button visibility based on filtered results
 function updateLoadMoreButtonVisibility() {
   const visibleProducts = document.querySelectorAll('.product-card[style*="block"]');
-  const loadMoreBtn = document.getElementById('loadMoreBtn');
-  const showLessBtn = document.getElementById('showLessBtn');
+  const toggleProductsBtn = document.getElementById('toggleProductsBtn');
   
-  if (visibleProducts.length <= initialVisibleCount) {
-    if (loadMoreBtn) loadMoreBtn.style.display = 'none';
-    if (showLessBtn) showLessBtn.classList.add('hidden');
-  } else {
-    if (loadMoreBtn) loadMoreBtn.style.display = 'flex';
+  if (toggleProductsBtn) {
+    if (visibleProducts.length <= initialVisibleCount) {
+      toggleProductsBtn.style.display = 'none';
+    } else {
+      toggleProductsBtn.style.display = 'flex';
+    }
   }
 }
 
