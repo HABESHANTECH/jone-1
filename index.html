@@ -2763,9 +2763,20 @@ item.classList.add("fade-in", `animate-delay-${(index % 3) + 1}`);
 function resetLoadMoreState() {
   currentIndex = 0;
   
-  // Reset load more button visibility
+  // Ensure only the first initialVisibleCount visible products are shown
+  const visibleProducts = Array.from(document.querySelectorAll('.product-card[style*="block"]'));
+  visibleProducts.forEach((card, index) => {
+    if (index < initialVisibleCount) {
+      card.classList.remove('hidden');
+    } else {
+      card.classList.add('hidden');
+      card.classList.remove('fade-in');
+    }
+  });
+  
+  // Reset buttons: show Load More if more than initialVisibleCount are visible, hide Show Less
   if (loadMoreBtn) {
-    loadMoreBtn.style.display = 'flex';
+    loadMoreBtn.style.display = visibleProducts.length > initialVisibleCount ? 'flex' : 'none';
   }
   if (showLessBtn) {
     showLessBtn.classList.add('hidden');
@@ -2777,7 +2788,7 @@ const loadMoreBtn = document.getElementById('loadMoreBtn');
 const showLessBtn = document.getElementById('showLessBtn');
 let currentIndex = 0;
 const productsPerLoad = 3;
-const initialVisibleCount = 6; // Number of products visible initially
+const initialVisibleCount = 9; // Number of products visible initially
 
 loadMoreBtn.addEventListener('click', function() {
   // Get currently visible products based on active tab and filters
@@ -2807,7 +2818,7 @@ showLessBtn.addEventListener('click', function() {
   // Get currently visible products based on active tab and filters
   const visibleProducts = Array.from(document.querySelectorAll('.product-card[style*="block"]'));
   
-  // Hide all products except the first 6
+  // Hide all products except the first initialVisibleCount
   visibleProducts.forEach((card, index) => {
     if (index >= initialVisibleCount) {
       card.classList.add('hidden');
@@ -3210,7 +3221,7 @@ function updateLoadMoreButtonVisibility() {
   const loadMoreBtn = document.getElementById('loadMoreBtn');
   const showLessBtn = document.getElementById('showLessBtn');
   
-  if (visibleProducts.length <= 6) {
+  if (visibleProducts.length <= initialVisibleCount) {
     if (loadMoreBtn) loadMoreBtn.style.display = 'none';
     if (showLessBtn) showLessBtn.classList.add('hidden');
   } else {
