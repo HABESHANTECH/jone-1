@@ -2654,10 +2654,10 @@ document.addEventListener("DOMContentLoaded", function () {
     }
     
     // Reset load more state
-    resetLoadMoreState();
+    if (window.resetLoadMoreState) window.resetLoadMoreState();
     
     // Update load more button visibility
-    updateLoadMoreButtonVisibility();
+    if (window.updateLoadMoreButtonVisibility) window.updateLoadMoreButtonVisibility();
     
     // Show notification
     if (visibleCount > 0) {
@@ -2762,7 +2762,7 @@ item.classList.add("fade-in", `animate-delay-${(index % 3) + 1}`);
 });
 
 // Function to reset load more state
-function resetLoadMoreState() {
+window.resetLoadMoreState = function resetLoadMoreState() {
   isExpanded = false;
   
   // Ensure only the first initialVisibleCount visible products are shown
@@ -3206,10 +3206,10 @@ function applyFilters() {
   updateResultsCount(visibleCount);
   
   // Reset load more state
-  resetLoadMoreState();
+  if (window.resetLoadMoreState) window.resetLoadMoreState();
   
   // Update load more button visibility
-  updateLoadMoreButtonVisibility();
+  if (window.updateLoadMoreButtonVisibility) window.updateLoadMoreButtonVisibility();
   
   // Update tab counts
   updateTabCounts();
@@ -3224,7 +3224,7 @@ function updateResultsCount(count) {
 }
 
 // Function to update load more button visibility based on filtered results
-function updateLoadMoreButtonVisibility() {
+window.updateLoadMoreButtonVisibility = function updateLoadMoreButtonVisibility() {
   const visibleProducts = document.querySelectorAll('.product-card[style*="block"]');
   const toggleProductsBtn = document.getElementById('toggleProductsBtn');
   
@@ -3239,6 +3239,10 @@ function updateLoadMoreButtonVisibility() {
     toggleProductsBtn.textContent = isExpanded ? 'Show Less' : 'Load More Products';
   }
 }
+
+// Initialize default collapsed view on load
+if (window.resetLoadMoreState) window.resetLoadMoreState();
+if (window.updateLoadMoreButtonVisibility) window.updateLoadMoreButtonVisibility();
 
 // Add event listeners to filter checkboxes for real-time filtering
 document.addEventListener('DOMContentLoaded', function() {
