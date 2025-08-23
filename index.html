@@ -523,6 +523,9 @@ Contact Support
                 </button>
               </div>
             </div>
+            <button id="searchBtn" class="hidden md:inline-flex bg-primary hover:bg-orange-700 text-white px-4 py-2 rounded-button text-sm">
+              <i class="ri-search-line mr-2"></i>Search
+            </button>
             <div class="text-gray-300 text-sm">
               <span id="resultsCount">12</span> products found
             </div>
@@ -3252,6 +3255,7 @@ document.addEventListener('DOMContentLoaded', function() {
   // Search input functionality (debounced)
   const productSearch = document.getElementById('productSearch');
   const clearSearchBtn = document.getElementById('clearSearchBtn');
+  const searchBtn = document.getElementById('searchBtn');
   let searchTimeout;
   if (productSearch) {
     productSearch.addEventListener('input', function() {
@@ -3262,6 +3266,19 @@ document.addEventListener('DOMContentLoaded', function() {
       searchTimeout = setTimeout(() => {
         applyFilters();
       }, 200);
+    });
+  }
+  if (searchBtn && productSearch) {
+    searchBtn.addEventListener('click', function() {
+      applyFilters();
+    });
+  }
+  if (productSearch) {
+    productSearch.addEventListener('keydown', function(e) {
+      if (e.key === 'Enter') {
+        e.preventDefault();
+        applyFilters();
+      }
     });
   }
   if (clearSearchBtn && productSearch) {
