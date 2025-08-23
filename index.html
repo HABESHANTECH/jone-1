@@ -2764,6 +2764,7 @@ let isExpanded = false;
 // Function to reset load more state
 function resetLoadMoreState() {
   currentIndex = 0;
+  isExpanded = false;
   
   // Ensure only the first initialVisibleCount visible products are shown
   const visibleProducts = Array.from(document.querySelectorAll('.product-card[style*="block"]'));
@@ -2779,6 +2780,7 @@ function resetLoadMoreState() {
   // Reset buttons: show Load More if more than initialVisibleCount are visible, hide Show Less
   if (loadMoreBtn) {
     loadMoreBtn.style.display = visibleProducts.length > initialVisibleCount ? 'flex' : 'none';
+    loadMoreBtn.innerHTML = '<span class="w-6 h-6 flex items-center justify-center mr-2"><i class="ri-loader-4-line"></i></span>Load More Products';
   }
   if (showLessBtn) {
     showLessBtn.classList.add('hidden');
