@@ -514,6 +514,15 @@ Contact Support
             </button>
           </div>
           <div class="flex items-center space-x-4">
+            <div class="hidden md:block">
+              <div class="relative">
+                <i class="ri-search-line absolute left-3 top-1/2 -translate-y-1/2 text-gray-400"></i>
+                <input id="productSearch" type="text" placeholder="Search products..." class="bg-[#1A1A1A] border border-gray-700 text-white pl-10 pr-10 py-2 rounded-button w-64 focus:outline-none focus:border-primary" />
+                <button id="clearSearchBtn" class="absolute right-2 top-1/2 -translate-y-1/2 text-gray-400 hover:text-primary hidden" title="Clear search">
+                  <i class="ri-close-line"></i>
+                </button>
+              </div>
+            </div>
             <div class="text-gray-300 text-sm">
               <span id="resultsCount">12</span> products found
             </div>
@@ -1963,6 +1972,7 @@ Show Less
 </div>
 </div>
 </div>
+</div>
 </section>
 <!-- About Section -->
 <section id="about" class="py-20 bg-[#0F0F0F]">
@@ -2232,6 +2242,7 @@ Show Less
 </div>
 <div class="metallic !rounded-lg overflow-hidden">
 <div style="background-image: url('./gallary/spokane\ \ \(17\).jpg'); background-size: contain; background-position: center; background-repeat: no-repeat; min-height: 400px;" class="w-full h-full"></div> </div>
+</div>
 </div>
 </div>
 </div>
@@ -2752,9 +2763,20 @@ item.classList.add("fade-in", `animate-delay-${(index % 3) + 1}`);
 function resetLoadMoreState() {
   currentIndex = 0;
   
-  // Reset load more button visibility
+  // Ensure only the first initialVisibleCount visible products are shown
+  const visibleProducts = Array.from(document.querySelectorAll('.product-card[style*="block"]'));
+  visibleProducts.forEach((card, index) => {
+    if (index < initialVisibleCount) {
+      card.classList.remove('hidden');
+    } else {
+      card.classList.add('hidden');
+      card.classList.remove('fade-in');
+    }
+  });
+  
+  // Reset buttons: show Load More if more than initialVisibleCount are visible, hide Show Less
   if (loadMoreBtn) {
-    loadMoreBtn.style.display = 'flex';
+    loadMoreBtn.style.display = visibleProducts.length > initialVisibleCount ? 'flex' : 'none';
   }
   if (showLessBtn) {
     showLessBtn.classList.add('hidden');
@@ -2766,7 +2788,7 @@ const loadMoreBtn = document.getElementById('loadMoreBtn');
 const showLessBtn = document.getElementById('showLessBtn');
 let currentIndex = 0;
 const productsPerLoad = 3;
-const initialVisibleCount = 6; // Number of products visible initially
+const initialVisibleCount = 9; // Number of products visible initially
 
 loadMoreBtn.addEventListener('click', function() {
   // Get currently visible products based on active tab and filters
@@ -2796,7 +2818,7 @@ showLessBtn.addEventListener('click', function() {
   // Get currently visible products based on active tab and filters
   const visibleProducts = Array.from(document.querySelectorAll('.product-card[style*="block"]'));
   
-  // Hide all products except the first 6
+  // Hide all products except the first initialVisibleCount
   visibleProducts.forEach((card, index) => {
     if (index >= initialVisibleCount) {
       card.classList.add('hidden');
@@ -3078,6 +3100,9 @@ function applyFilters() {
   const selectedModels = Array.from(document.querySelectorAll('input[type="checkbox"][value*="HOWO"], input[type="checkbox"][value*="SITRAK"], input[type="checkbox"][value*="SINO"]:checked'))
     .map(checkbox => checkbox.value);
   
+  const searchInput = document.getElementById('productSearch');
+  const searchTerm = searchInput ? searchInput.value.trim().toLowerCase() : '';
+  
   // Get the currently active tab
   const activeTab = document.querySelector('.tab-button.active');
   const activeTabType = activeTab ? activeTab.getAttribute('data-tab') : 'all-parts';
@@ -3088,7 +3113,14 @@ function applyFilters() {
   allProducts.forEach(product => {
     const productCategory = product.getAttribute('data-category');
     const productModels = product.getAttribute('data-models').split(',');
-    
+  
+    // Product text for search: name + code/description
+    const nameElement = product.querySelector('h3');
+    const descElement = product.querySelector('p');
+    const productName = nameElement ? nameElement.textContent.toLowerCase() : '';
+    const productDesc = descElement ? descElement.textContent.toLowerCase() : '';
+    const productCode = productDesc.split(' - ')[0];
+  
     // First check if product matches the active tab
     let tabMatch = true;
     switch(activeTabType) {
@@ -3110,9 +3142,13 @@ function applyFilters() {
     // Then check if product matches selected models
     const modelMatch = selectedModels.length === 0 || productModels.some(model => selectedModels.includes(model.trim()));
     
-    // Product must match tab, category, AND model filters
-    if (tabMatch && categoryMatch && modelMatch) {
+    // Then check if product matches search term (in name or code/desc)
+    const searchMatch = searchTerm === '' || productName.includes(searchTerm) || productDesc.includes(searchTerm) || productCode.includes(searchTerm);
+    
+    // Product must match tab, category, model, AND search filters
+    if (tabMatch && categoryMatch && modelMatch && searchMatch) {
       product.style.display = 'block';
+      product.classList.remove('hidden');
       visibleCount++;
     } else {
       product.style.display = 'none';
@@ -3185,7 +3221,7 @@ function updateLoadMoreButtonVisibility() {
   const loadMoreBtn = document.getElementById('loadMoreBtn');
   const showLessBtn = document.getElementById('showLessBtn');
   
-  if (visibleProducts.length <= 6) {
+  if (visibleProducts.length <= initialVisibleCount) {
     if (loadMoreBtn) loadMoreBtn.style.display = 'none';
     if (showLessBtn) showLessBtn.classList.add('hidden');
   } else {
@@ -3205,6 +3241,29 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   });
   
+  // Search input functionality (debounced)
+  const productSearch = document.getElementById('productSearch');
+  const clearSearchBtn = document.getElementById('clearSearchBtn');
+  let searchTimeout;
+  if (productSearch) {
+    productSearch.addEventListener('input', function() {
+      if (clearSearchBtn) {
+        clearSearchBtn.classList.toggle('hidden', this.value.trim() === '');
+      }
+      clearTimeout(searchTimeout);
+      searchTimeout = setTimeout(() => {
+        applyFilters();
+      }, 200);
+    });
+  }
+  if (clearSearchBtn && productSearch) {
+    clearSearchBtn.addEventListener('click', function() {
+      productSearch.value = '';
+      clearSearchBtn.classList.add('hidden');
+      applyFilters();
+    });
+  }
+  
   // Clear All Filters functionality
   const clearFiltersBtn = document.getElementById('clearFiltersBtn');
   if (clearFiltersBtn) {
@@ -3213,6 +3272,11 @@ document.addEventListener('DOMContentLoaded', function() {
       filterCheckboxes.forEach(checkbox => {
         checkbox.checked = false;
       });
+      // Clear search
+      if (productSearch && clearSearchBtn) {
+        productSearch.value = '';
+        clearSearchBtn.classList.add('hidden');
+      }
       
       // Apply filters to show products based on active tab
       applyFilters();
@@ -3233,58 +3297,15 @@ document.addEventListener('DOMContentLoaded', function() {
           checkbox.checked = false;
         }
       });
+      // Clear search
+      if (productSearch && clearSearchBtn) {
+        productSearch.value = '';
+        clearSearchBtn.classList.add('hidden');
+      }
       
       // Apply the default filters
       applyFilters();
       showNotification('Filters reset to default');
-    });
-  }
-  
-  // Clear Categories functionality
-  const clearCategoriesBtn = document.getElementById('clearCategoriesBtn');
-  if (clearCategoriesBtn) {
-    clearCategoriesBtn.addEventListener('click', function() {
-      // Uncheck only category checkboxes
-      const categoryCheckboxes = document.querySelectorAll('input[type="checkbox"][value*="Parts"], input[type="checkbox"][value*="System"], input[type="checkbox"][value*="Transmission"], input[type="checkbox"][value*="Electrical"], input[type="checkbox"][value*="Chassis"]');
-      categoryCheckboxes.forEach(checkbox => {
-        checkbox.checked = false;
-      });
-      
-      // Apply filters to update display
-      applyFilters();
-      showNotification('Categories cleared');
-    });
-  }
-  
-  // Clear Models functionality
-  const clearModelsBtn = document.getElementById('clearModelsBtn');
-  if (clearModelsBtn) {
-    clearModelsBtn.addEventListener('click', function() {
-      // Uncheck only model checkboxes
-      const modelCheckboxes = document.querySelectorAll('input[type="checkbox"][value*="HOWO"], input[type="checkbox"][value*="SITRAK"], input[type="checkbox"][value*="SINO"]');
-      modelCheckboxes.forEach(checkbox => {
-        checkbox.checked = false;
-      });
-      
-      // Apply filters to update display
-      applyFilters();
-      showNotification('Models cleared');
-    });
-  }
-  
-  // Clear Filters from No Results Message
-  const clearFiltersNoResults = document.getElementById('clearFiltersNoResults');
-  if (clearFiltersNoResults) {
-    clearFiltersNoResults.addEventListener('click', function() {
-      // Uncheck all filter checkboxes
-      filterCheckboxes.forEach(checkbox => {
-        checkbox.checked = false;
-      });
-      
-      // Apply filters to show products based on active tab
-      applyFilters();
-      
-      showNotification('All filters cleared');
     });
   }
   
@@ -3296,6 +3317,11 @@ document.addEventListener('DOMContentLoaded', function() {
       filterCheckboxes.forEach(checkbox => {
         checkbox.checked = false;
       });
+      // Clear search
+      if (productSearch && clearSearchBtn) {
+        productSearch.value = '';
+        clearSearchBtn.classList.add('hidden');
+      }
       
       // Apply filters to show products based on active tab
       applyFilters();
