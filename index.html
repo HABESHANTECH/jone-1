@@ -1682,17 +1682,11 @@ Contact Support
         </div>
         
         <div class="mt-10 flex justify-center">
-<button id="loadMoreBtn" class="bg-primary text-white px-6 py-3 !rounded-button flex items-center whitespace-nowrap">
+<button id="toggleProductsBtn" class="bg-primary text-white px-6 py-3 !rounded-button flex items-center whitespace-nowrap">
 <span class="w-6 h-6 flex items-center justify-center mr-2">
 <i class="ri-loader-4-line"></i>
 </span>
 Load More Products
-</button>
-<button id="showLessBtn" class="bg-secondary text-white px-6 py-3 !rounded-button flex items-center whitespace-nowrap ml-4 hidden">
-<span class="w-6 h-6 flex items-center justify-center mr-2">
-<i class="ri-arrow-up-line"></i>
-</span>
-Show Less
 </button>
 </div>
 </div>
@@ -1973,6 +1967,8 @@ Show Less
 </div>
 </div>
 </div>
+</div>
+</div>
 </section>
 <!-- About Section -->
 <section id="about" class="py-20 bg-[#0F0F0F]">
@@ -2242,6 +2238,9 @@ Show Less
 </div>
 <div class="metallic !rounded-lg overflow-hidden">
 <div style="background-image: url('./gallary/spokane\ \ \(17\).jpg'); background-size: contain; background-position: center; background-repeat: no-repeat; min-height: 400px;" class="w-full h-full"></div> </div>
+</div>
+</div>
+</div>
 </div>
 </div>
 </div>
@@ -2761,7 +2760,7 @@ item.classList.add("fade-in", `animate-delay-${(index % 3) + 1}`);
 
 // Function to reset load more state
 function resetLoadMoreState() {
-  currentIndex = 0;
+  isExpanded = false;
   
   // Ensure only the first initialVisibleCount visible products are shown
   const visibleProducts = Array.from(document.querySelectorAll('.product-card[style*="block"]'));
@@ -2774,64 +2773,70 @@ function resetLoadMoreState() {
     }
   });
   
-  // Reset buttons: show Load More if more than initialVisibleCount are visible, hide Show Less
-  if (loadMoreBtn) {
-    loadMoreBtn.style.display = visibleProducts.length > initialVisibleCount ? 'flex' : 'none';
-  }
-  if (showLessBtn) {
-    showLessBtn.classList.add('hidden');
+  // Update toggle button visibility and text
+  if (toggleProductsBtn) {
+    toggleProductsBtn.style.display = visibleProducts.length > initialVisibleCount ? 'flex' : 'none';
+    toggleProductsBtn.textContent = 'Load More Products';
   }
 }
 
-// Load More Products functionality
-const loadMoreBtn = document.getElementById('loadMoreBtn');
-const showLessBtn = document.getElementById('showLessBtn');
-let currentIndex = 0;
-const productsPerLoad = 3;
-const initialVisibleCount = 9; // Number of products visible initially
+// Load More Products functionality (toggle-based)
+const toggleProductsBtn = document.getElementById('toggleProductsBtn');
+let isExpanded = false;
+let initialVisibleCount = computeInitialVisibleCount(); // Number of products visible initially (3 rows)
 
-loadMoreBtn.addEventListener('click', function() {
-  // Get currently visible products based on active tab and filters
-  const visibleProducts = Array.from(document.querySelectorAll('.product-card[style*="block"]'));
-  const hiddenVisibleProducts = visibleProducts.filter(product => product.classList.contains('hidden'));
-  
-  const startIndex = currentIndex;
-  const endIndex = Math.min(currentIndex + productsPerLoad, hiddenVisibleProducts.length);
-  
-  for (let i = startIndex; i < endIndex; i++) {
-    if (hiddenVisibleProducts[i]) {
-      hiddenVisibleProducts[i].classList.remove('hidden');
-      hiddenVisibleProducts[i].classList.add('fade-in');
-    }
+// Dynamic 3-row visible count based on current grid columns
+const productsGrid = document.querySelector('#products .grid');
+function getGridColumnCount() {
+  if (!productsGrid) return 3;
+  const styles = window.getComputedStyle(productsGrid);
+  const template = styles.gridTemplateColumns;
+  if (template && template !== 'none') {
+    return template.split(' ').length;
   }
-  
-  currentIndex = endIndex;
-  
-  // Show "Show Less" button and hide "Load More" button if all products are loaded
-  if (currentIndex >= hiddenVisibleProducts.length) {
-    loadMoreBtn.style.display = 'none';
-    showLessBtn.classList.remove('hidden');
-  }
-});
+  const width = window.innerWidth;
+  if (width >= 1024) return 3; // lg:grid-cols-3
+  if (width >= 768) return 2;  // md:grid-cols-2
+  return 1;                     // grid-cols-1
+}
+function computeInitialVisibleCount() {
+  return getGridColumnCount() * 3; // 3 rows
+}
 
-showLessBtn.addEventListener('click', function() {
-  // Get currently visible products based on active tab and filters
-  const visibleProducts = Array.from(document.querySelectorAll('.product-card[style*="block"]'));
-  
-  // Hide all products except the first initialVisibleCount
-  visibleProducts.forEach((card, index) => {
-    if (index >= initialVisibleCount) {
-      card.classList.add('hidden');
-      card.classList.remove('fade-in');
+if (toggleProductsBtn) {
+  toggleProductsBtn.addEventListener('click', function() {
+    const visibleProducts = Array.from(document.querySelectorAll('.product-card[style*="block"]'));
+    if (!isExpanded) {
+      // Reveal all remaining products
+      visibleProducts.forEach(card => {
+        card.classList.remove('hidden');
+        card.classList.add('fade-in');
+      });
+      isExpanded = true;
+      toggleProductsBtn.textContent = 'Show Less';
+    } else {
+      // Hide products after the first 3 rows
+      initialVisibleCount = computeInitialVisibleCount();
+      visibleProducts.forEach((card, index) => {
+        if (index >= initialVisibleCount) {
+          card.classList.add('hidden');
+          card.classList.remove('fade-in');
+        }
+      });
+      isExpanded = false;
+      toggleProductsBtn.textContent = 'Load More Products';
     }
   });
-  
-  // Reset current index
-  currentIndex = 0;
-  
-  // Show "Load More" button and hide "Show Less" button
-  loadMoreBtn.style.display = 'flex';
-  showLessBtn.classList.add('hidden');
+}
+
+// Keep initialVisibleCount responsive
+window.addEventListener('resize', function() {
+  const previous = initialVisibleCount;
+  initialVisibleCount = computeInitialVisibleCount();
+  if (!isExpanded && initialVisibleCount !== previous) {
+    resetLoadMoreState();
+  }
+  updateLoadMoreButtonVisibility();
 });
 
 // Favorites and Compare functionality
@@ -3218,14 +3223,17 @@ function updateResultsCount(count) {
 // Function to update load more button visibility based on filtered results
 function updateLoadMoreButtonVisibility() {
   const visibleProducts = document.querySelectorAll('.product-card[style*="block"]');
-  const loadMoreBtn = document.getElementById('loadMoreBtn');
-  const showLessBtn = document.getElementById('showLessBtn');
+  const toggleProductsBtn = document.getElementById('toggleProductsBtn');
   
   if (visibleProducts.length <= initialVisibleCount) {
-    if (loadMoreBtn) loadMoreBtn.style.display = 'none';
-    if (showLessBtn) showLessBtn.classList.add('hidden');
+    if (toggleProductsBtn) toggleProductsBtn.style.display = 'none';
   } else {
-    if (loadMoreBtn) loadMoreBtn.style.display = 'flex';
+    if (toggleProductsBtn) toggleProductsBtn.style.display = 'flex';
+  }
+  
+  // Ensure button text reflects current state
+  if (toggleProductsBtn) {
+    toggleProductsBtn.textContent = isExpanded ? 'Show Less' : 'Load More Products';
   }
 }
 
