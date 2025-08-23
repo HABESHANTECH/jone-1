@@ -2759,6 +2759,8 @@ document.querySelectorAll(".timeline-item").forEach((item, index) => {
 item.classList.add("fade-in", `animate-delay-${(index % 3) + 1}`);
 });
 
+let isExpanded = false;
+
 // Function to reset load more state
 function resetLoadMoreState() {
   currentIndex = 0;
@@ -2791,48 +2793,31 @@ const productsPerLoad = 3;
 const initialVisibleCount = 9; // Number of products visible initially
 
 loadMoreBtn.addEventListener('click', function() {
-  // Get currently visible products based on active tab and filters
   const visibleProducts = Array.from(document.querySelectorAll('.product-card[style*="block"]'));
-  const hiddenVisibleProducts = visibleProducts.filter(product => product.classList.contains('hidden'));
-  
-  const startIndex = currentIndex;
-  const endIndex = Math.min(currentIndex + productsPerLoad, hiddenVisibleProducts.length);
-  
-  for (let i = startIndex; i < endIndex; i++) {
-    if (hiddenVisibleProducts[i]) {
-      hiddenVisibleProducts[i].classList.remove('hidden');
-      hiddenVisibleProducts[i].classList.add('fade-in');
-    }
-  }
-  
-  currentIndex = endIndex;
-  
-  // Show "Show Less" button and hide "Load More" button if all products are loaded
-  if (currentIndex >= hiddenVisibleProducts.length) {
-    loadMoreBtn.style.display = 'none';
-    showLessBtn.classList.remove('hidden');
+  if (!isExpanded) {
+    // Expand: reveal all hidden visible products
+    const hiddenVisibleProducts = visibleProducts.filter(product => product.classList.contains('hidden'));
+    hiddenVisibleProducts.forEach(card => {
+      card.classList.remove('hidden');
+      card.classList.add('fade-in');
+    });
+    isExpanded = true;
+    loadMoreBtn.innerHTML = '<span class="w-6 h-6 flex items-center justify-center mr-2"><i class="ri-arrow-up-line"></i></span>Show Less';
+  } else {
+    // Collapse: hide all beyond initialVisibleCount
+    visibleProducts.forEach((card, index) => {
+      if (index >= initialVisibleCount) {
+        card.classList.add('hidden');
+        card.classList.remove('fade-in');
+      }
+    });
+    isExpanded = false;
+    loadMoreBtn.innerHTML = '<span class="w-6 h-6 flex items-center justify-center mr-2"><i class="ri-loader-4-line"></i></span>Load More Products';
   }
 });
 
-showLessBtn.addEventListener('click', function() {
-  // Get currently visible products based on active tab and filters
-  const visibleProducts = Array.from(document.querySelectorAll('.product-card[style*="block"]'));
-  
-  // Hide all products except the first initialVisibleCount
-  visibleProducts.forEach((card, index) => {
-    if (index >= initialVisibleCount) {
-      card.classList.add('hidden');
-      card.classList.remove('fade-in');
-    }
-  });
-  
-  // Reset current index
-  currentIndex = 0;
-  
-  // Show "Load More" button and hide "Show Less" button
-  loadMoreBtn.style.display = 'flex';
-  showLessBtn.classList.add('hidden');
-});
+// Remove separate showLessBtn behavior since toggle handled by loadMoreBtn
+showLessBtn.classList.add('hidden');
 
 // Favorites and Compare functionality
 let favorites = [];
@@ -3221,12 +3206,8 @@ function updateLoadMoreButtonVisibility() {
   const loadMoreBtn = document.getElementById('loadMoreBtn');
   const showLessBtn = document.getElementById('showLessBtn');
   
-  if (visibleProducts.length <= initialVisibleCount) {
-    if (loadMoreBtn) loadMoreBtn.style.display = 'none';
-    if (showLessBtn) showLessBtn.classList.add('hidden');
-  } else {
-    if (loadMoreBtn) loadMoreBtn.style.display = 'flex';
-  }
+  if (loadMoreBtn) loadMoreBtn.style.display = visibleProducts.length > initialVisibleCount ? 'flex' : 'none';
+  if (showLessBtn) showLessBtn.classList.add('hidden');
 }
 
 // Add event listeners to filter checkboxes for real-time filtering
